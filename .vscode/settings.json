@@ -1,0 +1,8 @@
+{
+    "cSpell.enabled": true,
+    "cSpell.ignoreWords": [
+        "Formik",
+        "firestore",
+        "lastname"
+    ]
+}
