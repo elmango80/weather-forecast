@@ -4,7 +4,6 @@ import {
   googleAuthProvider,
 } from "firebase/config";
 import { types } from "../types/types";
-import { finishLoading, startLoading } from "./ui";
 
 export const login = (uid, displayName) => ({
   type: types.LOGIN,
@@ -36,8 +35,6 @@ export const registerWithEmailAndPassword = (completeName, email, password) => {
 
 export const loginWithEmailAndPassword = (email, password) => {
   return async (dispatch) => {
-    // dispatch(startLoading());
-
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -46,9 +43,6 @@ export const loginWithEmailAndPassword = (email, password) => {
       })
       .catch((error) => {
         console.error(error);
-      })
-      .finally(() => {
-        // dispatch(finishLoading());
       });
   };
 };
