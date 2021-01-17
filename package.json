@@ -6,13 +6,29 @@
     "author": "Eduardo Sánchez Redondo",
     "license": "MIT",
     "dependencies": {
-        "@testing-library/jest-dom": "^5.11.9",
-        "@testing-library/react": "^11.2.3",
-        "@testing-library/user-event": "^12.6.0",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
+        "@elastic/datemath": "5.0.3",
+        "@elastic/eui": "31.2.0",
+        "@testing-library/jest-dom": "5.11.9",
+        "@testing-library/react": "11.2.3",
+        "@testing-library/user-event": "12.6.0",
+        "formik": "2.2.6",
+        "moment": "2.29.1",
+        "prop-types": "15.7.2",
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
+        "react-redux": "7.2.2",
         "react-scripts": "4.0.1",
-        "web-vitals": "^0.2.4"
+        "redux": "4.0.5",
+        "redux-thunk": "2.3.0",
+        "web-vitals": "0.2.4",
+        "yup": "0.32.8"
+    },
+    "devDependencies": {
+        "eslint": "7.17.0",
+        "eslint-config-prettier": "7.1.0",
+        "eslint-plugin-prettier": "3.3.1",
+        "eslint-plugin-react": "7.22.0",
+        "prettier": "2.2.1"
     },
     "scripts": {
         "start": "react-scripts start",

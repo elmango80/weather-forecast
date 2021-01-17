@@ -1,0 +1,11 @@
+export const types = {
+  //AUTH types
+  LOGIN: "SING_IN",
+  LOGOUT: "SING_OUT",
+
+  //UI types
+  SET_ERROR: "SET_ERROR",
+  REMOVE_ERROR: "REMOVE_ERROR",
+  STAR_LOADING: "STAR_LOADING",
+  FINISH_LOADING: "FINISH_LOADING",
+};
