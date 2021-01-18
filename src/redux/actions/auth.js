@@ -6,11 +6,12 @@ import {
 import { types } from "../types/types";
 import { removeError, setError } from "./ui";
 
-export const login = (uid, displayName) => ({
+export const login = (uid, displayName, photoURL) => ({
   type: types.LOGIN,
   payload: {
     uid,
     displayName,
+    photoURL,
   },
 });
 

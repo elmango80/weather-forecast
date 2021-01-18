@@ -1,0 +1,165 @@
+@font-face {
+    font-family: "weathericons";
+    src: url("font/weathericons-regular-webfont.eot");
+    src: url("font/weathericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("font/weathericons-regular-webfont.woff2") format("woff2"), url("font/weathericons-regular-webfont.woff") format("woff"), url("font/weathericons-regular-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.temperature__maximun,
+.temperature__minimun {
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 1rem;
+}
+
+.temperature__current {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+}
+
+.temperature__maximun::before,
+.temperature__minimun::before {
+    font-family: "weathericons";
+    margin-right: 0.3rem;
+    font-size: inherit;
+}
+
+.temperature__minimun::before {
+    content: "\f044";
+}
+
+.temperature__maximun::before {
+    content: "\f058";
+}
+
+.temperature__maximun::after,
+.temperature__minimun::after,
+.temperature__current::after {
+    content: "ºC";
+    font-size: inherit;
+}
+
+.state-sky {
+    font-size: 3rem;
+    line-height: 1;
+    margin: 0;
+    display: inline-block;
+}
+
+.state-sky:before,
+.state-sky:after {
+    position: relative;
+    font-family: "weathericons";
+    font-size: 3rem;
+    line-height: 0;
+}
+
+.state-sky[data-id="01d"]:after {
+    content: "\f00d";
+}
+
+.state-sky[data-id="01n"]:after {
+    content: "\f02e";
+}
+
+.state-sky[data-id="02d"]:after,
+.state-sky[data-id="03d"]:after {
+    content: "\f002";
+}
+
+.state-sky[data-id="02n"]:after,
+.state-sky[data-id="03n"]:after {
+    content: "\f086";
+}
+
+.state-sky[data-id="11"]:after {
+    content: "\f00d";
+}
+
+.state-sky[data-id="11n"]:after {
+    content: "\f02e";
+}
+
+.state-sky[data-id="12"]:after,
+.state-sky[data-id="13"]:after {
+    content: "\f00c";
+}
+
+.state-sky[data-id="12n"]:after,
+.state-sky[data-id="13n"]:after {
+    content: "\f083";
+}
+
+.state-sky[data-id*="14"]:after,
+.state-sky[data-id*="15"]:after,
+.state-sky[data-id*="16"]:after {
+    content: "\f013";
+}
+
+.state-sky[data-id="17"]:after {
+    content: "\f07d";
+}
+
+.state-sky[data-id="17n"]:after {
+    content: "\f080";
+}
+
+.state-sky[data-id*="64"]:after,
+.state-sky[data-id*="63"]:after,
+.state-sky[data-id*="62"]:after,
+.state-sky[data-id*="61"]:after,
+.state-sky[data-id*="54"]:after,
+.state-sky[data-id*="53"]:after,
+.state-sky[data-id*="52"]:after,
+.state-sky[data-id*="51"]:after {
+    content: "\f01e";
+}
+
+.state-sky[data-id*="46"]:after,
+.state-sky[data-id*="45"]:after,
+.state-sky[data-id*="44"]:after,
+.state-sky[data-id*="26"]:after,
+.state-sky[data-id*="25"]:after,
+.state-sky[data-id*="24"]:after,
+.state-sky[data-id*="23"]:after {
+    content: "\f019";
+}
+
+.state-sky[data-id="43"]:after {
+    content: "\f008";
+}
+
+.state-sky[data-id="43n"]:after {
+    content: "\f036";
+}
+
+.state-sky[data-id*="74"]:after,
+.state-sky[data-id*="73"]:after,
+.state-sky[data-id*="72"]:after,
+.state-sky[data-id*="71"]:after,
+.state-sky[data-id*="36"]:after,
+.state-sky[data-id*="35"]:after,
+.state-sky[data-id*="34"]:after,
+.state-sky[data-id*="33"]:after {
+    content: "\f01b";
+}
+
+.state-sky[data-id="81"]:after,
+.state-sky[data-id="82"]:after {
+    content: "\f003";
+}
+
+.state-sky[data-id="81n"]:after,
+.state-sky[data-id="82n"]:after {
+    content: "\f04a";
+}
+
+.state-sky[data-id="wind"]:after {
+    content: "\f050";
+}

@@ -19,7 +19,7 @@ export default function AppRouter() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
         setIsAuthenticated(true);
       } else {
         setIsAuthenticated(false);

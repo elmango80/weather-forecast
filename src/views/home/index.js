@@ -1,22 +1,75 @@
+import React from "react";
+
 import {
+  EuiFlexGrid,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiHideFor,
   EuiPageContentBody,
   EuiPageContentHeader,
   EuiPageContentHeaderSection,
+  EuiSpacer,
   EuiTitle,
 } from "@elastic/eui";
-import React from "react";
+
+import ComboBoxSearch from "components/ComboBoxSearch";
+import CardForecast from "components/CardForecast";
 
 export default function HomePage() {
   return (
     <>
       <EuiPageContentHeader>
-        <EuiPageContentHeaderSection>
-          <EuiTitle size="s">
-            <h1>Selecciona un municipio</h1>
-          </EuiTitle>
-        </EuiPageContentHeaderSection>
+        <EuiFlexGroup direction="column">
+          <EuiFlexItem>
+            <EuiPageContentHeaderSection>
+              <EuiFlexGrid
+                columns={1}
+                alignItems="flexStart"
+                direction="column"
+                gutterSize="s"
+              >
+                <EuiFlexItem grow={false}>
+                  <EuiTitle>
+                    <h1>Selecciona un municipio</h1>
+                  </EuiTitle>
+                </EuiFlexItem>
+                <EuiFlexItem grow={false}>
+                  <ComboBoxSearch fullWidth />
+                </EuiFlexItem>
+              </EuiFlexGrid>
+            </EuiPageContentHeaderSection>
+          </EuiFlexItem>
+          <EuiHideFor sizes={["xs", "s"]}>
+            <EuiSpacer size="xxl" />
+          </EuiHideFor>
+
+          <EuiFlexItem>
+            <EuiPageContentBody>
+              <EuiFlexGrid
+                columns={2}
+                style={{ justifyContent: "space-evenly" }}
+                gutterSize="xl"
+              >
+                <EuiFlexItem>
+                  <CardForecast />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <CardForecast />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <CardForecast />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <CardForecast />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <CardForecast />
+                </EuiFlexItem>
+              </EuiFlexGrid>
+            </EuiPageContentBody>
+          </EuiFlexItem>
+        </EuiFlexGroup>
       </EuiPageContentHeader>
-      <EuiPageContentBody>Pronostico del clima</EuiPageContentBody>
     </>
   );
 }

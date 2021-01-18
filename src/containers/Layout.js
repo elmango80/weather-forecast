@@ -9,11 +9,13 @@ import "./layout.css";
 
 export default function Layout() {
   return (
-    <EuiPage className="layout__page">
+    <>
       <Header />
-      <EuiPageBody component="div">
-        <Content />
-      </EuiPageBody>
-    </EuiPage>
+      <EuiPage className="layout__page" restrictWidth>
+        <EuiPageBody>
+          <Content />
+        </EuiPageBody>
+      </EuiPage>
+    </>
   );
 }
