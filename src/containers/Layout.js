@@ -9,7 +9,7 @@ import "./layout.css";
 
 export default function Layout() {
   return (
-    <EuiPage style={{ marginTop: "3rem" }}>
+    <EuiPage className="layout__page">
       <Header />
       <EuiPageBody component="div">
         <Content />

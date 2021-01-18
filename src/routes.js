@@ -1,7 +1,10 @@
 import React from "react";
 
-const Home = (props) => <h1>Home</h1>;
 const Favorites = (props) => <h1>Favoritos</h1>;
+
+const HomePage = React.lazy(() =>
+  import(/*webpackChunkName: "login"*/ "views/home")
+);
 
 const routes = [
   {
@@ -14,7 +17,7 @@ const routes = [
     path: "/",
     name: "Home",
     exact: true,
-    component: Home,
+    component: HomePage,
   },
 ];
 

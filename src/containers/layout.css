@@ -1,13 +1,18 @@
-.container {
+.body__container {
     border: 0px;
     width: 100%;
+    min-height: calc(100vh - 5rem);
+}
+
+.layout__page {
+    margin-top: 3rem;
 }
 
 
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    .container {
+    .body__container {
         width: 720px;
     }
 }
@@ -16,7 +21,7 @@
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-    .container {
+    .body__container {
         width: 960px;
     }
 }
@@ -25,7 +30,7 @@
 /* Extra large devices (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {
-    .container {
+    .body__container {
         width: 1140px;
     }
 }

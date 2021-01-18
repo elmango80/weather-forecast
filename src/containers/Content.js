@@ -12,7 +12,7 @@ export default function Content() {
       hasShadow={false}
       color="transparent"
       panelPaddingSize="none"
-      className="container"
+      className="body__container"
     >
       <EuiPageContentBody>
         <Suspense fallback={<></>}>
