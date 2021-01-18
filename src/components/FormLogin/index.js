@@ -124,7 +124,8 @@ export default function FormLogin() {
             <EuiHorizontalRule margin="xxl" />
             <EuiText textAlign="center">
               <p>
-                ¿No tienes una cuenta? <Link to="/registrar">Regístrate</Link>
+                {`¿No tienes una cuenta? `}
+                <Link to="/auth/registrar">Regístrate</Link>
               </p>
             </EuiText>
           </EuiForm>

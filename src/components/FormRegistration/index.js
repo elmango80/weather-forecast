@@ -122,7 +122,7 @@ export default function FormRegistration() {
             <EuiHorizontalRule margin="xxl" />
             <EuiText textAlign="center">
               <p>
-                ¿Ya tienes una cuenta?{" "}
+                {`¿Ya tienes una cuenta? `}
                 <Link to="/ingresar">Iniciar sesión</Link>
               </p>
             </EuiText>
