@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { firebase } from "firebase/config";
@@ -34,7 +34,7 @@ export default function AppRouter() {
   }, [dispatch]);
 
   if (loading) {
-    return <h1>Espere...</h1>;
+    return <h1>Cargando...</h1>;
   }
 
   return (
@@ -45,26 +45,34 @@ export default function AppRouter() {
             exact
             path="/ingresar"
             name="Login"
-            render={(props) => <Login {...props} />}
+            component={(props) =>
+              isAuthenticated ? <Login {...props} /> : <Redirect to="/" />
+            }
           />
           <Route
             exact
             path="/registrar"
             name="Register"
-            render={(props) => <Register {...props} />}
+            component={(props) =>
+              isAuthenticated ? <Register {...props} /> : <Redirect to="/" />
+            }
           />
           <Route
             path="/"
             name="Home"
-            render={(props) => {
+            component={(props) => {
               return isAuthenticated ? (
                 <>
-                  <div>Rutas privadas</div>
+                  <h1>Rutas privadas</h1>
+                  <Link to="/ingresar" style={{ marginRight: 10 }}>
+                    Ingresar
+                  </Link>
+                  <Link to="/registrar">Registrarse</Link>
                 </>
               ) : (
                 <Redirect
                   to={{
-                    pathname: "/login",
+                    pathname: "/ingresar",
                     state: { from: props.location },
                   }}
                 />

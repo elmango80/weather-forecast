@@ -25,7 +25,7 @@ const initValues = {
 
 export default function FormRegistration() {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.ui);
+  const { loading, msgError } = useSelector((state) => state.ui);
 
   return (
     <Formik
@@ -108,6 +108,13 @@ export default function FormRegistration() {
                 disabled={loading}
               />
             </EuiFormRow>
+            {msgError && (
+              <EuiFormRow>
+                <EuiText color="danger" size="s">
+                  <p>{msgError}</p>
+                </EuiText>
+              </EuiFormRow>
+            )}
             <EuiSpacer size="xl" />
             <EuiButton type="submit" fill fullWidth isLoading={loading}>
               Registrate

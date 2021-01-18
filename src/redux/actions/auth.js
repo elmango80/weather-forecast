@@ -4,6 +4,7 @@ import {
   googleAuthProvider,
 } from "firebase/config";
 import { types } from "../types/types";
+import { removeError, setError } from "./ui";
 
 export const login = (uid, displayName) => ({
   type: types.LOGIN,
@@ -26,8 +27,10 @@ export const registerWithEmailAndPassword = (completeName, email, password) => {
         await user.updateProfile({ displayName: completeName });
 
         dispatch(login(user.uid, user.displayName));
+        dispatch(removeError());
       })
       .catch((error) => {
+        dispatch(setError("no hemos podido registrarte como usuario."));
         console.error(error);
       });
   };
@@ -40,8 +43,14 @@ export const loginWithEmailAndPassword = (email, password) => {
       .signInWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
         dispatch(login(user.uid, user.displayName, null));
+        dispatch(removeError());
       })
       .catch((error) => {
+        dispatch(
+          setError(
+            "El correo electrónico y contraseña no corresponden a un usuario registrado."
+          )
+        );
         console.error(error);
       });
   };
@@ -54,8 +63,12 @@ export const loginWithGoogle = () => {
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName, user.photoURL));
+        dispatch(removeError());
       })
       .catch((error) => {
+        dispatch(
+          setError("No hemos podido autenticar a tu usuario de Google.")
+        );
         console.error(error);
       });
   };
@@ -68,8 +81,12 @@ export const loginWithGithub = () => {
       .signInWithPopup(githubAuthProvider)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName, user.photoURL));
+        dispatch(removeError());
       })
       .catch((error) => {
+        dispatch(
+          setError("No hemos podido autenticar a tu usuario de Github.")
+        );
         console.error(error);
       });
   };

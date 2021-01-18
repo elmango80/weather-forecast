@@ -22,13 +22,13 @@ import {
 } from "@elastic/eui";
 
 const initValues = {
-  email: "esanchezredondo@invertironline.com",
+  email: "tere.alurralde@gmail.com",
   password: "testeo123",
 };
 
 export default function FormLogin() {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.ui);
+  const { loading, msgError } = useSelector((state) => state.ui);
 
   return (
     <Formik
@@ -89,6 +89,13 @@ export default function FormLogin() {
                 disabled={loading}
               />
             </EuiFormRow>
+            {msgError && (
+              <EuiFormRow>
+                <EuiText color="danger" size="s">
+                  <p>{msgError}</p>
+                </EuiText>
+              </EuiFormRow>
+            )}
             <EuiSpacer size="xl" />
             <EuiButton type="submit" fill fullWidth isLoading={isSubmitting}>
               Iniciar sesión
