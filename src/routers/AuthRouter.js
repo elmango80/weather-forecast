@@ -11,12 +11,10 @@ const Register = React.lazy(() =>
 
 export const AuthRouter = () => {
   return (
-    <Suspense delayMs={500} fallback={<h1>Cargando...</h1>}>
-      <Switch>
-        <Route exact path="/auth/ingresar" component={Login} />
-        <Route exact path="/auth/registrar" component={Register} />
-        <Redirect to="/auth/ingresar" />
-      </Switch>
-    </Suspense>
+    <Switch>
+      <Route exact path="/auth/ingresar" component={Login} />
+      <Route exact path="/auth/registrar" component={Register} />
+      <Redirect to="/auth/ingresar" />
+    </Switch>
   );
 };
