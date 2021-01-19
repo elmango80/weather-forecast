@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 
 import { registerWithEmailAndPassword } from "redux/actions/auth";
+import { removeError, finishLoading } from "redux/actions/ui";
+
 import registerScheme from "schemes/registerScheme";
 
 import {
@@ -26,6 +28,13 @@ const initValues = {
 export default function FormRegistration() {
   const dispatch = useDispatch();
   const { loading, msgError } = useSelector((state) => state.ui);
+
+  useEffect(() => {
+    return () => {
+      dispatch(finishLoading());
+      dispatch(removeError());
+    };
+  }, [dispatch]);
 
   return (
     <Formik
@@ -62,7 +71,6 @@ export default function FormRegistration() {
               <EuiFieldText
                 placeholder="Nombre completo"
                 name="completeName"
-                autoComplete="off"
                 value={values.completeName}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -79,7 +87,6 @@ export default function FormRegistration() {
                 placeholder="Correo electrónico"
                 name="email"
                 type="email"
-                autoComplete="off"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -100,7 +107,6 @@ export default function FormRegistration() {
                 placeholder="Contraseña"
                 name="password"
                 type="dual"
-                autoComplete="off"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}

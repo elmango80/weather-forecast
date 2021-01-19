@@ -10,16 +10,18 @@ export const types = {
   FINISH_LOADING: "[UI] Finish loading",
 
   //MUNICIPALITY types
-  GET_MUNICIPALITIES: "[DATA] Get municipalities",
-  GET_MUNICIPALITY_FORECAST: "[DATA] Get municipality forecast",
+  FETCH_MUN_REQUEST: "[MUN] Fetch municipalities request",
+  FETCH_MUN_SUCCESS: "[MUN] Fetch municipalities success",
+  FETCH_MUN_FAILURE: "[MUN] Fetch municipalities failure",
 
   //USER types
   ADD_FAVORITE: "[USER] Add favorite",
   REMOVE_FAVORITE: "[USER] Remove favorite",
   RELOCATE_FAVORITE: "[USER] Relocate favorite",
 
-  //API types
-  FETCHING_DATA_START: "[API] Fetching data start",
-  FETCHING_DATA_SUCCESS: "[API] Fetching data success",
-  FETCHING_DATA_FAILURE: "[API] Fetching data failure",
+  //FORECAST types
+  FETCH_FORECAST_REQUEST: "[FORECAST] Fetch forecast request",
+  FETCH_FORECAST_SUCCESS: "[FORECAST] Fetch forecast success",
+  FETCH_FORECAST_FAILURE: "[FORECAST] Fetch forecast failure",
+  REMOVE_FORECAST_DATA: "[FORECAST] Remove forecast",
 };

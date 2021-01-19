@@ -7,19 +7,25 @@ import {
   EuiPageContent,
   EuiPageContentBody,
 } from "@elastic/eui";
+import { Helmet } from "react-helmet";
 
 import FormLogin from "components/FormLogin";
 
 export default function Login() {
   return (
-    <EuiPage style={{ minHeight: "calc(100vh - 4rem)" }}>
-      <EuiPageBody component="section">
-        <EuiPageContent verticalPosition="center" horizontalPosition="center">
-          <EuiPageContentBody>
-            <FormLogin />
-          </EuiPageContentBody>
-        </EuiPageContent>
-      </EuiPageBody>
-    </EuiPage>
+    <>
+      <Helmet>
+        <title>El Tiempo | Ingresar</title>
+      </Helmet>
+      <EuiPage style={{ minHeight: "calc(100vh - 4rem)" }}>
+        <EuiPageBody component="section">
+          <EuiPageContent verticalPosition="center" horizontalPosition="center">
+            <EuiPageContentBody>
+              <FormLogin />
+            </EuiPageContentBody>
+          </EuiPageContent>
+        </EuiPageBody>
+      </EuiPage>
+    </>
   );
 }

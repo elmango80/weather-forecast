@@ -2,6 +2,7 @@
     "cSpell.enabled": true,
     "cSpell.ignoreWords": [
         "Formik",
+        "axios",
         "firestore",
         "lastname"
     ]

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
@@ -8,6 +8,7 @@ import {
   loginWithGithub,
   loginWithGoogle,
 } from "redux/actions/auth";
+import { removeError, finishLoading } from "redux/actions/ui";
 
 import loginScheme from "schemes/loginScheme";
 
@@ -30,6 +31,13 @@ const initValues = {
 export default function FormLogin() {
   const dispatch = useDispatch();
   const { loading, msgError } = useSelector((state) => state.ui);
+
+  useEffect(() => {
+    return () => {
+      dispatch(finishLoading());
+      dispatch(removeError());
+    };
+  }, [dispatch]);
 
   return (
     <Formik

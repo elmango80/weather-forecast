@@ -30,7 +30,7 @@ export const registerWithEmailAndPassword = (completeName, email, password) => {
         console.log(user);
         await user.updateProfile({ displayName: completeName });
 
-        dispatch(login(user.uid, user.displayName, user.photoURL));
+        dispatch(login(user.uid, user.displayName, user));
         dispatch(removeError());
       })
       .catch((error) => {

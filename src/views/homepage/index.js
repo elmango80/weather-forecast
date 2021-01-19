@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-  EuiFlexGrid,
   EuiFlexGroup,
   EuiFlexItem,
   EuiHideFor,
@@ -9,29 +8,25 @@ import {
   EuiPageContentHeader,
   EuiPageContentHeaderSection,
   EuiSpacer,
-  EuiTitle,
 } from "@elastic/eui";
+import { Helmet } from "react-helmet";
 
 import ComboBoxSearch from "components/ComboBoxSearch";
-import CardForecast from "components/CardForecast";
+import SingleForecast from "components/SingleForecast";
 
 export default function HomePage() {
   return (
-    <EuiPageContentHeader>
+    <>
+      <Helmet>
+        <title>El Tiempo | Homepage</title>
+      </Helmet>
       <EuiFlexGroup direction="column">
         <EuiFlexItem>
-          <EuiPageContentHeaderSection>
-            <EuiFlexGrid columns={1} direction="column" gutterSize="s">
-              <EuiFlexItem grow={false}>
-                <EuiTitle>
-                  <h1>Selecciona un municipio</h1>
-                </EuiTitle>
-              </EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <ComboBoxSearch fullWidth />
-              </EuiFlexItem>
-            </EuiFlexGrid>
-          </EuiPageContentHeaderSection>
+          <EuiPageContentHeader>
+            <EuiPageContentHeaderSection>
+              <ComboBoxSearch />
+            </EuiPageContentHeaderSection>
+          </EuiPageContentHeader>
         </EuiFlexItem>
         <EuiHideFor sizes={["xs", "s"]}>
           <EuiSpacer size="xxl" />
@@ -39,30 +34,14 @@ export default function HomePage() {
 
         <EuiFlexItem>
           <EuiPageContentBody>
-            <EuiFlexGrid
-              columns={2}
-              style={{ justifyContent: "space-evenly" }}
-              gutterSize="xl"
-            >
+            <EuiFlexGroup>
               <EuiFlexItem>
-                <CardForecast />
+                <SingleForecast />
               </EuiFlexItem>
-              <EuiFlexItem>
-                <CardForecast />
-              </EuiFlexItem>
-              <EuiFlexItem>
-                <CardForecast />
-              </EuiFlexItem>
-              <EuiFlexItem>
-                <CardForecast />
-              </EuiFlexItem>
-              <EuiFlexItem>
-                <CardForecast />
-              </EuiFlexItem>
-            </EuiFlexGrid>
+            </EuiFlexGroup>
           </EuiPageContentBody>
         </EuiFlexItem>
       </EuiFlexGroup>
-    </EuiPageContentHeader>
+    </>
   );
 }

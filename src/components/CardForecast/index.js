@@ -1,6 +1,4 @@
 import React from "react";
-import "./styles.css";
-import "styles/weather-icons.css";
 
 import {
   EuiButtonIcon,
@@ -12,11 +10,25 @@ import {
   EuiToolTip,
 } from "@elastic/eui";
 
-export default function CardForecast({ municipality, province }, ...rest) {
+import "./styles.css";
+import "styles/weather-icons.css";
+
+function CardForecast({
+  provinceName,
+  municipalityName,
+  date,
+  stateSkyId,
+  stateSkyDescription,
+  currentTemperature,
+  maxTemperature,
+  minTemperature,
+  humidity,
+  wind,
+  rain,
+}) {
   return (
     <EuiCard
-      {...rest}
-      betaBadgeLabel="Nombre provincia"
+      betaBadgeLabel={provinceName}
       textAlign="left"
       title={
         <EuiFlexGroup
@@ -27,8 +39,8 @@ export default function CardForecast({ municipality, province }, ...rest) {
         >
           <EuiFlexItem>
             <EuiTitle size="m">
-              <h1>{"NOMBRE DEL MUNICIPIO"}</h1>
-            </EuiTitle>{" "}
+              <h1>{municipalityName}</h1>
+            </EuiTitle>
           </EuiFlexItem>
           <EuiFlexItem grow={false}>
             <EuiToolTip content="Añadir a mis favoritos">
@@ -53,13 +65,12 @@ export default function CardForecast({ municipality, province }, ...rest) {
         responsive={false}
       >
         <EuiFlexItem grow={false}>
-          <span className="temperature__current">8</span>
+          <span className="temperature__current">{currentTemperature}</span>
         </EuiFlexItem>
         <EuiFlexItem grow={false}>
-          <span className="state-sky" data-id="12" />
+          <span className="state-sky" data-id={stateSkyId} />
         </EuiFlexItem>
       </EuiFlexGroup>
-
       <EuiFlexGroup
         alignItems="flexEnd"
         justifyContent="spaceBetween"
@@ -67,22 +78,24 @@ export default function CardForecast({ municipality, province }, ...rest) {
       >
         <EuiFlexItem grow={false}>
           <EuiText textAlign="left">
-            <h4>JUEVES, 14 ENE</h4>
-            <div>Poco nuboso</div>
+            <h4>{date}</h4>
+            <div>{stateSkyDescription}</div>
             <div className="temperature">
-              <span className="temperature__maximun">13</span>
-              <span className="temperature__minimun">5</span>
+              <span className="temperature__maximun">{maxTemperature}</span>
+              <span className="temperature__minimun">{minTemperature}</span>
             </div>
           </EuiText>
         </EuiFlexItem>
         <EuiFlexItem grow={false}>
           <EuiText textAlign="right">
-            <div>Humedad: 65%</div>
-            <div>Viento: 14 km/h</div>
-            <div>Lluvia: 0%</div>
+            <div>{`Humedad: ${humidity}`}</div>
+            <div>{`Viento: ${wind} km/h`}</div>
+            <div>{`Lluvia: ${rain}%`}</div>
           </EuiText>
         </EuiFlexItem>
       </EuiFlexGroup>
     </EuiCard>
   );
 }
+
+export default React.memo(CardForecast);
