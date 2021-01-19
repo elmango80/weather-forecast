@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { normalizeDataForComboBox } from "helpers/dataHelper";
 
-import { EuiComboBox, EuiIcon } from "@elastic/eui";
+import { EuiComboBox } from "@elastic/eui";
 import mockData from "mocks/locationsMock.json";
 
 const allOptionsStatic = normalizeDataForComboBox(mockData);
 
 export default function ComboBoxSearch(props) {
-  const [allOptions, setAllOptions] = useState(allOptionsStatic);
+  const [allOptions] = useState(allOptionsStatic);
   const [selectedOptions, setSelected] = useState([]);
 
   useEffect(() => {
@@ -18,51 +18,6 @@ export default function ComboBoxSearch(props) {
     setSelected(selectedOptions);
   };
 
-  const onCreateOption = (searchValue, flattenedOptions = []) => {
-    if (!searchValue) {
-      return;
-    }
-
-    const normalizedSearchValue = searchValue.trim().toLowerCase();
-
-    if (!normalizedSearchValue) {
-      return;
-    }
-
-    const newOption = {
-      label: searchValue,
-    };
-
-    // Create the option if it doesn't exist.
-    if (
-      flattenedOptions.findIndex(
-        (option) => option.label.trim().toLowerCase() === normalizedSearchValue
-      ) === -1
-    ) {
-      if (allOptions[allOptions.length - 1].label !== "Custom") {
-        setAllOptions([
-          ...allOptions,
-          {
-            label: "Custom",
-            options: [],
-          },
-        ]);
-      }
-      const [colors, sounds, custom] = allOptions;
-      setAllOptions([
-        colors,
-        sounds,
-        {
-          ...custom,
-          options: [...custom.options, newOption],
-        },
-      ]);
-    }
-
-    // Select the option.
-    setSelected([...selectedOptions, newOption]);
-  };
-
   return (
     <EuiComboBox
       {...props}
@@ -70,8 +25,6 @@ export default function ComboBoxSearch(props) {
       options={allOptions}
       selectedOptions={selectedOptions}
       onChange={onChange}
-      onCreateOption={onCreateOption}
-      prepend={[<EuiIcon type="vector" />]}
     />
   );
 }

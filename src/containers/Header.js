@@ -15,7 +15,7 @@ export default function Header() {
       iconType="logoElastic"
       href="#"
       onClick={(e) => e.preventDefault()}
-      aria-label="Go to home page"
+      aria-label="Go to homepage"
     />
   );
 

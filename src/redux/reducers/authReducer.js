@@ -1,16 +1,16 @@
 import { types } from "../types/types";
 
-export default function authReducer(state = {}, action) {
-  switch (action.type) {
+export default function authReducer(state = null, { type, payload }) {
+  switch (type) {
     case types.LOGIN:
       return {
-        uid: action.payload.uid,
-        displayName: action.payload.displayName,
-        photoURL: action.payload.photoURL,
+        uid: payload.uid,
+        displayName: payload.displayName,
+        photoURL: payload.photoURL,
       };
 
     case types.LOGOUT:
-      return {};
+      return null;
 
     default:
       return state;

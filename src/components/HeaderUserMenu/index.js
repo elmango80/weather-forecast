@@ -42,7 +42,7 @@ export default function HeaderUserMenu() {
       aria-label="Menu usuario autenticado"
       onClick={onMenuButtonClick}
     >
-      <EuiAvatar size="s" name={displayName} imageUrl={photoURL} />
+      <EuiAvatar size="s" name={displayName ?? ""} imageUrl={photoURL} />
     </EuiHeaderSectionItemButton>
   );
 
@@ -63,7 +63,7 @@ export default function HeaderUserMenu() {
           responsive={false}
         >
           <EuiFlexItem grow={false}>
-            <EuiAvatar size="xl" name={displayName} imageUrl={photoURL} />
+            <EuiAvatar size="xl" name={displayName ?? ""} imageUrl={photoURL} />
           </EuiFlexItem>
 
           <EuiFlexItem>

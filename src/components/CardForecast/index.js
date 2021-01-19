@@ -9,11 +9,13 @@ import {
   EuiFlexItem,
   EuiText,
   EuiTitle,
+  EuiToolTip,
 } from "@elastic/eui";
 
-export default function CardForecast({ municipality, province }) {
+export default function CardForecast({ municipality, province }, ...rest) {
   return (
     <EuiCard
+      {...rest}
       betaBadgeLabel="Nombre provincia"
       textAlign="left"
       title={
@@ -29,15 +31,17 @@ export default function CardForecast({ municipality, province }) {
             </EuiTitle>{" "}
           </EuiFlexItem>
           <EuiFlexItem grow={false}>
-            <EuiButtonIcon
-              color="primary"
-              onClick={() => {
-                console.log("Add to favorities click!");
-              }}
-              iconType="starEmpty"
-              iconSize="xl"
-              aria-label="Add to favorities"
-            />
+            <EuiToolTip content="Añadir a mis favoritos">
+              <EuiButtonIcon
+                color="primary"
+                onClick={() => {
+                  console.log("Add to favorites click!");
+                }}
+                iconType="starEmpty"
+                iconSize="xl"
+                aria-label="Add to favorites"
+              />
+            </EuiToolTip>
           </EuiFlexItem>
         </EuiFlexGroup>
       }

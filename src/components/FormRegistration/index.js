@@ -18,9 +18,9 @@ import {
 } from "@elastic/eui";
 
 const initValues = {
-  completeName: "Mango Sanchez Redondo",
-  email: "esanchezredondo@invertironline.com",
-  password: "testeo123",
+  completeName: "",
+  email: "",
+  password: "",
 };
 
 export default function FormRegistration() {

@@ -8,6 +8,7 @@ import {
   loginWithGithub,
   loginWithGoogle,
 } from "redux/actions/auth";
+
 import loginScheme from "schemes/loginScheme";
 
 import {
@@ -22,8 +23,8 @@ import {
 } from "@elastic/eui";
 
 const initValues = {
-  email: "tere.alurralde@gmail.com",
-  password: "testeo123",
+  email: "",
+  password: "",
 };
 
 export default function FormLogin() {
@@ -34,12 +35,10 @@ export default function FormLogin() {
     <Formik
       initialValues={initValues}
       validationSchema={loginScheme}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values) => {
         const { email, password } = values;
 
-        dispatch(loginWithEmailAndPassword(email, password)).then(() => {
-          setSubmitting(false);
-        });
+        dispatch(loginWithEmailAndPassword(email, password));
       }}
     >
       {(props) => {
@@ -50,7 +49,6 @@ export default function FormLogin() {
           handleBlur,
           handleChange,
           handleSubmit,
-          isSubmitting,
         } = props;
 
         return (
@@ -59,10 +57,12 @@ export default function FormLogin() {
             component="form"
             onSubmit={handleSubmit}
             invalidCallout="none"
+            noValidate
           >
             <EuiFormRow
               label="Correo electrónico"
               isInvalid={errors.email && touched.email}
+              error={errors.email}
             >
               <EuiFieldText
                 placeholder="Correo electrónico"
@@ -77,6 +77,7 @@ export default function FormLogin() {
             <EuiFormRow
               label="Contraseña"
               isInvalid={errors.password && touched.password}
+              error={errors.password}
             >
               <EuiFieldPassword
                 placeholder="Contraseña"
@@ -97,7 +98,7 @@ export default function FormLogin() {
               </EuiFormRow>
             )}
             <EuiSpacer size="xl" />
-            <EuiButton type="submit" fill fullWidth isLoading={isSubmitting}>
+            <EuiButton type="submit" fill fullWidth isLoading={loading}>
               Iniciar sesión
             </EuiButton>
             <EuiHorizontalRule margin="l" size="half" />

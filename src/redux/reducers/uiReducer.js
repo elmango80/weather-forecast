@@ -5,12 +5,12 @@ const initialState = {
   msgError: null,
 };
 
-export default function uiReducer(state = initialState, action) {
-  switch (action.type) {
+export default function uiReducer(state = initialState, { type, payload }) {
+  switch (type) {
     case types.SET_ERROR:
       return {
         ...state,
-        msgError: action.payload,
+        msgError: payload,
       };
 
     case types.REMOVE_ERROR:

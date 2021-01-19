@@ -9,7 +9,7 @@ const registerSchema = yup.object().shape({
   password: yup
     .string()
     .min(8, "La contraseña debe contener mínimo 8 caracteres.")
-    .required("Completa este campo."),
+    .required("La contraseña debe contener mínimo 8 caracteres."),
 });
 
 export default registerSchema;

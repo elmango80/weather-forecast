@@ -4,7 +4,7 @@ import {
   googleAuthProvider,
 } from "firebase/config";
 import { types } from "../types/types";
-import { removeError, setError } from "./ui";
+import { removeError, setError, startLoading, finishLoading } from "./ui";
 
 export const login = (uid, displayName, photoURL) => ({
   type: types.LOGIN,
@@ -21,29 +21,38 @@ export const logout = () => ({
 
 export const registerWithEmailAndPassword = (completeName, email, password) => {
   return (dispatch) => {
+    dispatch(startLoading());
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
+        console.log(user);
         await user.updateProfile({ displayName: completeName });
 
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
         dispatch(removeError());
       })
       .catch((error) => {
-        dispatch(setError("no hemos podido registrarte como usuario."));
+        dispatch(setError("No hemos podido registrarte como usuario."));
+
         console.error(error);
+      })
+      .finally(() => {
+        dispatch(finishLoading());
       });
   };
 };
 
 export const loginWithEmailAndPassword = (email, password) => {
   return async (dispatch) => {
+    dispatch(startLoading());
+
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
-        dispatch(login(user.uid, user.displayName, null));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
         dispatch(removeError());
       })
       .catch((error) => {
@@ -52,7 +61,11 @@ export const loginWithEmailAndPassword = (email, password) => {
             "El correo electrónico y contraseña no corresponden a un usuario registrado."
           )
         );
+
         console.error(error);
+      })
+      .finally(() => {
+        dispatch(finishLoading());
       });
   };
 };

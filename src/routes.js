@@ -1,9 +1,11 @@
 import React from "react";
 
-const Favorites = (props) => <h1>Favoritos</h1>;
+const Favorites = React.lazy(() =>
+  import(/*webpackChunkName: "Favorites"*/ "views/favorites")
+);
 
 const HomePage = React.lazy(() =>
-  import(/*webpackChunkName: "login"*/ "views/home")
+  import(/*webpackChunkName: "HomePAge"*/ "views/homepage")
 );
 
 const routes = [
