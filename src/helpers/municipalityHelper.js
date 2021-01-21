@@ -6,20 +6,28 @@ export function normalizeData(data) {
       return {
         provinceId: item["CODPROV"],
         provinceName: item["NOMBRE_PROVINCIA"],
-        municipalityId: item["CODIGOINE"].slice(0, 5),
+        municipalityId: item["CODIGOINE"],
         municipalityName: item["NOMBRE"],
       };
     })
-    .keyBy("municipalityName")
+    .keyBy("municipalityId")
     .value();
 }
 
 export function toComboBoxOption(data) {
   const hashTable = _.toArray(data).reduce((acc, cur) => {
     if (!acc[cur.provinceName]) {
-      acc[cur.provinceName] = [{ label: cur.municipalityName }];
+      acc[cur.provinceName] = [
+        {
+          label: cur.municipalityName,
+          key: cur.municipalityId,
+        },
+      ];
     } else {
-      acc[cur.provinceName].push({ label: cur.municipalityName });
+      acc[cur.provinceName].push({
+        label: cur.municipalityName,
+        key: cur.municipalityId,
+      });
     }
 
     return acc;

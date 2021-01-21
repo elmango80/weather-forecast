@@ -17,7 +17,7 @@ export default function Login() {
       <Helmet>
         <title>El Tiempo | Ingresar</title>
       </Helmet>
-      <EuiPage style={{ minHeight: "calc(100vh - 4rem)" }}>
+      <EuiPage className="page">
         <EuiPageBody component="section">
           <EuiPageContent verticalPosition="center" horizontalPosition="center">
             <EuiPageContentBody>

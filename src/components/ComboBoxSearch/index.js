@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toComboBoxOption } from "helpers/municipalityHelper";
-import { getMunicipalities } from "redux/actions/municipality";
 
 import { EuiComboBox, EuiFlexGrid, EuiFlexItem, EuiTitle } from "@elastic/eui";
 import { getForecast, removeForecast } from "redux/actions/forecast";
@@ -10,33 +9,35 @@ export default function ComboBoxSearch(props) {
   const [allOptions, setAllOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const dispatch = useDispatch();
-  const { loading, list, msgError } = useSelector(
+  const { loading, municipalities, msgError } = useSelector(
     (state) => state.municipality
   );
 
   useEffect(() => {
-    dispatch(getMunicipalities());
-
     return () => {
       dispatch(removeForecast());
     };
   }, [dispatch]);
 
   useEffect(() => {
-    const allOptionsStatic = toComboBoxOption(list);
+    const allOptionsStatic = toComboBoxOption(municipalities);
 
     setAllOptions(allOptionsStatic);
-  }, [list]);
+  }, [municipalities]);
 
-  const onChange = (selectedOptions) => {
-    setSelectedOptions(selectedOptions);
+  const onChange = (newSelectedOptions) => {
+    setSelectedOptions(newSelectedOptions);
 
-    if (selectedOptions.length) {
-      const { provinceId, municipalityId } = list[selectedOptions[0].label];
+    if (newSelectedOptions > selectedOptions) {
+      const { provinceId, municipalityId } = municipalities[
+        newSelectedOptions[newSelectedOptions.length - 1].key
+      ];
 
       dispatch(getForecast(provinceId, municipalityId));
     } else {
-      dispatch(removeForecast());
+      const paths = newSelectedOptions.map((item) => item.key);
+
+      dispatch(removeForecast(paths));
     }
   };
 
@@ -51,7 +52,6 @@ export default function ComboBoxSearch(props) {
         <EuiComboBox
           {...props}
           fullWidth
-          singleSelection={{ asPlainText: true }}
           placeholder="Escriba el nombre del municipio"
           sortMatchesBy="startsWith"
           options={allOptions}

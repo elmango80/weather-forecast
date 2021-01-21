@@ -14,14 +14,15 @@ export const types = {
   FETCH_MUN_SUCCESS: "[MUN] Fetch municipalities success",
   FETCH_MUN_FAILURE: "[MUN] Fetch municipalities failure",
 
-  //USER types
-  ADD_FAVORITE: "[USER] Add favorite",
-  REMOVE_FAVORITE: "[USER] Remove favorite",
-  RELOCATE_FAVORITE: "[USER] Relocate favorite",
-
   //FORECAST types
-  FETCH_FORECAST_REQUEST: "[FORECAST] Fetch forecast request",
-  FETCH_FORECAST_SUCCESS: "[FORECAST] Fetch forecast success",
-  FETCH_FORECAST_FAILURE: "[FORECAST] Fetch forecast failure",
-  REMOVE_FORECAST_DATA: "[FORECAST] Remove forecast",
+  FETCH_FORECAST_REQUEST: "[FCST] Fetch forecast request",
+  FETCH_FORECAST_SUCCESS: "[FCST] Fetch forecast success",
+  FETCH_FORECAST_FAILURE: "[FCST] Fetch forecast failure",
+  REMOVE_FORECAST: "[FCST] Remove forecast",
+  CLEAR_FORECAST: "[FCST] Clear forecast",
+
+  //USER types
+  GET_FAVORITES: "[USER] Set favorites",
+  ADD_FAVORITE: "[USER] Add favorite",
+  DELETE_FAVORITE: "[USER] Remove favorite",
 };

@@ -1,0 +1,15 @@
+.euiLoadingContent__singleLine:last-child {
+    margin-bottom: 0;
+}
+
+.forecast__card--loading .euiCard__title .euiLoadingContent {
+    margin: 0.75rem 0px;
+}
+
+.forecast__card--loading .forecast__card-content .euiLoadingContent {
+    width: 10rem;
+}
+
+.forecast__card--loading .forecast__card-content:last-child {
+    margin-top: 0.5rem;
+}

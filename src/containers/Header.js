@@ -1,34 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import {
   EuiHeader,
-  EuiHeaderLogo,
   EuiHeaderSection,
   EuiHeaderSectionItem,
+  EuiHideFor,
+  EuiIcon,
+  EuiText,
 } from "@elastic/eui";
+
+import logo from "logo.svg";
 
 import HeaderUserMenu from "components/HeaderUserMenu";
 
 export default function Header() {
-  const renderLogo = () => (
-    <EuiHeaderLogo
-      iconType="logoElastic"
-      href="#"
-      onClick={(e) => e.preventDefault()}
-      aria-label="Go to homepage"
-    />
-  );
+  const { displayName } = useSelector((state) => state.auth);
 
   return (
-    <EuiHeader position="fixed" theme="dark" style={{ position: "sticky" }}>
-      <EuiHeaderSection grow={false}>
-        <EuiHeaderSectionItem border="right">
-          {renderLogo()}
+    <EuiHeader position="fixed" className="header">
+      <EuiHeaderSection>
+        <EuiHeaderSectionItem border="none">
+          <Link to="/">
+            <EuiIcon type={logo} size="xl" className="euiHeaderLogo__icon" />
+          </Link>
         </EuiHeaderSectionItem>
       </EuiHeaderSection>
 
       <EuiHeaderSection side="right">
-        <EuiHeaderSectionItem>
+        <EuiHideFor sizes={["xs", "s"]}>
+          <EuiHeaderSectionItem border="none">
+            <EuiText size="s">Hola, {displayName}</EuiText>
+          </EuiHeaderSectionItem>
+        </EuiHideFor>
+        <EuiHeaderSectionItem border="none">
           <HeaderUserMenu />
         </EuiHeaderSectionItem>
       </EuiHeaderSection>

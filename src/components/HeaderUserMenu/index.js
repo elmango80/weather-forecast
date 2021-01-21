@@ -42,7 +42,7 @@ export default function HeaderUserMenu() {
       aria-label="Menu usuario autenticado"
       onClick={onMenuButtonClick}
     >
-      <EuiAvatar size="s" name={displayName ?? ""} imageUrl={photoURL} />
+      <EuiAvatar size="l" name={displayName} imageUrl={photoURL} />
     </EuiHeaderSectionItemButton>
   );
 

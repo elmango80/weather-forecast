@@ -2,7 +2,7 @@ import { types } from "../types/types";
 
 const initialState = {
   loading: false,
-  list: [],
+  municipalities: null,
   msgError: null,
 };
 
@@ -15,7 +15,7 @@ export default function municipalityReducer(
       return {
         ...state,
         loading: true,
-        list: [],
+        municipalities: null,
         msgError: null,
       };
 
@@ -23,7 +23,7 @@ export default function municipalityReducer(
       return {
         ...state,
         loading: false,
-        list: payload,
+        municipalities: payload,
       };
 
     case types.FETCH_MUN_FAILURE:

@@ -1,6 +1,12 @@
 import { types } from "../types/types";
 
-export default function authReducer(state = null, { type, payload }) {
+const initialState = {
+  uid: "",
+  displayName: "",
+  photoURL: null,
+};
+
+export default function authReducer(state = initialState, { type, payload }) {
   switch (type) {
     case types.LOGIN:
       return {
@@ -10,7 +16,7 @@ export default function authReducer(state = null, { type, payload }) {
       };
 
     case types.LOGOUT:
-      return null;
+      return initialState;
 
     default:
       return state;

@@ -1,8 +1,9 @@
+import _ from "lodash";
 import { types } from "../types/types";
 
 const initialState = {
   loading: false,
-  data: null,
+  forecasts: {},
   msgError: null,
 };
 
@@ -15,7 +16,6 @@ export default function forecastReducer(
       return {
         ...state,
         loading: true,
-        data: null,
         msgError: null,
       };
 
@@ -23,7 +23,10 @@ export default function forecastReducer(
       return {
         ...state,
         loading: false,
-        data: payload,
+        forecasts: {
+          ...state.forecasts,
+          [payload.key]: payload.data,
+        },
       };
 
     case types.FETCH_FORECAST_FAILURE:
@@ -33,10 +36,16 @@ export default function forecastReducer(
         msgError: payload,
       };
 
-    case type.REMOVE_FORECAST_DATA:
+    case types.REMOVE_FORECAST:
       return {
         ...state,
-        data: null,
+        forecasts: _.pick(state.forecasts, payload),
+      };
+
+    case types.CLEAR_FORECAST:
+      return {
+        ...state,
+        forecasts: {},
       };
 
     default:

@@ -5,15 +5,14 @@ import {
 } from "firebase/config";
 import { types } from "../types/types";
 import { removeError, setError, startLoading, finishLoading } from "./ui";
+import { getFavorites } from "./user";
 
-export const login = (uid, displayName, photoURL) => ({
-  type: types.LOGIN,
-  payload: {
-    uid,
-    displayName,
-    photoURL,
-  },
-});
+export const login = ({ uid, displayName, photoURL }) => {
+  return (dispatch) => {
+    dispatch({ type: types.LOGIN, payload: { uid, displayName, photoURL } });
+    dispatch(getFavorites(uid));
+  };
+};
 
 export const logout = () => ({
   type: types.LOGOUT,
@@ -52,7 +51,8 @@ export const loginWithEmailAndPassword = (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
-        dispatch(login(user.uid, user.displayName, user.photoURL));
+        console.log("loginWithEmailAndPassword -> auth");
+        dispatch(login(user));
         dispatch(removeError());
       })
       .catch((error) => {
@@ -76,7 +76,7 @@ export const loginWithGoogle = () => {
       .auth()
       .signInWithPopup(googleAuthProvider)
       .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName, user.photoURL));
+        dispatch(login(user));
         dispatch(removeError());
       })
       .catch((error) => {
@@ -94,7 +94,7 @@ export const loginWithGithub = () => {
       .auth()
       .signInWithPopup(githubAuthProvider)
       .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName, user.photoURL));
+        dispatch(login(user));
         dispatch(removeError());
       })
       .catch((error) => {

@@ -8,10 +8,10 @@ const fetchForecastRequest = () => {
   };
 };
 
-const fetchForecastSuccess = (data) => {
+const fetchForecastSuccess = (data, key) => {
   return {
     type: types.FETCH_FORECAST_SUCCESS,
-    payload: data,
+    payload: { data, key },
   };
 };
 
@@ -26,10 +26,11 @@ export const getForecast = (provinceId, municipalityId) => {
   return (dispatch) => {
     dispatch(fetchForecastRequest());
     axios
-      .get(`/provincias/${provinceId}/municipios/${municipalityId}`)
+      .get(`/provincias/${provinceId}/municipios/${municipalityId.slice(0, 5)}`)
       .then((response) => {
         const data = normalizeData(response.data);
-        dispatch(fetchForecastSuccess(data));
+
+        dispatch(fetchForecastSuccess(data, municipalityId));
       })
       .catch((error) => {
         dispatch(fetchForecastFailure(error.message));
@@ -39,8 +40,19 @@ export const getForecast = (provinceId, municipalityId) => {
   };
 };
 
-export const removeForecast = () => {
+export const removeForecast = (paths) => {
   return (dispatch) => {
-    dispatch({ type: types.REMOVE_FORECAST_DATA });
+    dispatch({
+      type: types.REMOVE_FORECAST,
+      payload: paths,
+    });
+  };
+};
+
+export const clearForecast = () => {
+  return (dispatch) => {
+    dispatch({
+      type: types.CLEAR_FORECAST,
+    });
   };
 };

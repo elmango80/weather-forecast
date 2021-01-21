@@ -14,7 +14,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <EuiPage className="layout__page" restrictWidth>
+      <EuiPage className="page page--with-header" restrictWidth>
         <EuiPageBody>
           <Content />
           {loading && <LoadingOverlay />}

@@ -1,10 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { firebase } from "firebase/config";
-import { login } from "redux/actions/auth";
 import { finishLoading } from "redux/actions/ui";
+import { login } from "redux/actions/auth";
+import { getMunicipalities } from "redux/actions/municipality";
 
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
@@ -15,20 +16,28 @@ export default function AppRouter() {
   const dispatch = useDispatch();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isChecking, setIsChecking] = useState(true);
+  const { municipalities } = useSelector((state) => state.municipality);
+  const { auth } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user?.uid) {
-        dispatch(login(user.uid, user.displayName, user.photoURL));
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
+    if (!auth) {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user?.uid) {
+          dispatch(login(user));
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
 
-      setIsChecking(false);
-      dispatch(finishLoading());
-    });
-  }, [dispatch]);
+        setIsChecking(false);
+        dispatch(finishLoading());
+      });
+    }
+
+    if (!municipalities) {
+      dispatch(getMunicipalities());
+    }
+  }, [dispatch, municipalities, auth]);
 
   if (isChecking) {
     return <LoadingOverlay />;
