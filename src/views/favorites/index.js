@@ -21,7 +21,6 @@ import {
 import { Helmet } from "react-helmet";
 
 import CardForecast from "components/CardForecast";
-import ComboBoxSearch from "components/ComboBoxSearch";
 
 export default function Favorites() {
   const [leftDraggable, setLeftDraggable] = useState([]);
