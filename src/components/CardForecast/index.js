@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import _ from "lodash";
 
 import { addFavorites, deleteFavorite } from "redux/actions/user";
 
@@ -77,12 +76,10 @@ function CardForecast({
                   onClick={async () => {
                     setBusy(true);
                     if (isFavorite) {
-                      console.log("Delete Click!");
                       await Promise.all([
                         dispatch(deleteFavorite(docRef, municipalityId)),
                       ]);
                     } else {
-                      console.log("Add Click!");
                       const data = {
                         municipalityId,
                         uid,
