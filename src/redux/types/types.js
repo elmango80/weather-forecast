@@ -21,8 +21,8 @@ export const types = {
   REMOVE_FORECAST: "[FCST] Remove forecast",
   CLEAR_FORECAST: "[FCST] Clear forecast",
 
-  //USER types
-  GET_FAVORITES: "[USER] Set favorites",
-  ADD_FAVORITE: "[USER] Add favorite",
-  DELETE_FAVORITE: "[USER] Remove favorite",
+  //FAVORITES types
+  GET_FAVORITES: "[FAV] Get user favorites",
+  ADD_FAVORITE: "[FAV] Add a user favorite",
+  DELETE_FAVORITE: "[FAV] Remove a user favorite",
 };

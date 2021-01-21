@@ -2,9 +2,9 @@ import _ from "lodash";
 import { types } from "../types/types";
 
 const initialState = {
-  favorites: {
-    municipalities: {},
-  },
+  loading: false,
+  favorites: {},
+  msgError: null,
 };
 
 export default function userReducer(state = initialState, { type, payload }) {
@@ -19,19 +19,15 @@ export default function userReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         favorites: {
-          municipalities: {
-            ...state.favorites.municipalities,
-            ...payload,
-          },
+          ...state.favorites,
+          ...payload,
         },
       };
 
     case types.DELETE_FAVORITE:
       return {
         ...state,
-        favorites: {
-          municipalities: _.omit(state.favorites.municipalities, payload),
-        },
+        favorites: _.omit(state.favorites, payload),
       };
 
     default:

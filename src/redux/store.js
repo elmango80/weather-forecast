@@ -4,7 +4,10 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const composeEnhancers =
-  (typeof window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+  (process.env.NODE_ENV &&
+    typeof window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 export const store = createStore(
   rootReducer,

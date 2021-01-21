@@ -37,7 +37,7 @@ export default function AppRouter() {
     if (!municipalities) {
       dispatch(getMunicipalities());
     }
-  }, [dispatch, municipalities, auth]);
+  }, [auth, dispatch, municipalities]);
 
   if (isChecking) {
     return <LoadingOverlay />;

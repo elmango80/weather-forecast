@@ -26,7 +26,6 @@ export const registerWithEmailAndPassword = (completeName, email, password) => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
-        console.log(user);
         await user.updateProfile({ displayName: completeName });
 
         dispatch(login(user.uid, user.displayName, user));
@@ -51,7 +50,6 @@ export const loginWithEmailAndPassword = (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(async ({ user }) => {
-        console.log("loginWithEmailAndPassword -> auth");
         dispatch(login(user));
         dispatch(removeError());
       })

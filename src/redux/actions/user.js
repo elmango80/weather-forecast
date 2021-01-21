@@ -9,7 +9,6 @@ export function addFavorites(data) {
     favoritesRef
       .add(data)
       .then((docRef) => {
-        console.log({ [data.municipalityId]: docRef.id });
         dispatch({
           type: types.ADD_FAVORITE,
           payload: { [data.municipalityId]: docRef.id },

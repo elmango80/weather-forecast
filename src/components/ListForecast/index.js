@@ -10,7 +10,7 @@ import "./styles.css";
 
 export default function ListForecast() {
   const { forecasts, loading } = useSelector((state) => state.forecast);
-  const { favorites } = useSelector((state) => state.user);
+  const { favorites } = useSelector((state) => state.favorite);
 
   return (
     <EuiFlexGrid columns={2} className="forecast__wrapper" gutterSize="xl">
@@ -22,8 +22,8 @@ export default function ListForecast() {
       {_.values(forecasts)
         .reverse()
         .map((item) => {
-          const isFavorite = item.municipalityId in favorites.municipalities;
-          const docRef = favorites.municipalities[item.municipalityId];
+          const isFavorite = item.municipalityId in favorites;
+          const docRef = favorites[item.municipalityId];
 
           return (
             <EuiFlexItem key={item.municipalityId}>
