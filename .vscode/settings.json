@@ -3,6 +3,7 @@
     "cSpell.ignoreWords": [
         "Formik",
         "axios",
+        "draggables",
         "firestore",
         "lastname"
     ]

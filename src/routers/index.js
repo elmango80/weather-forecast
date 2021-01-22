@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { firebase } from "firebase/config";
 import { finishLoading } from "redux/actions/ui";
 import { login } from "redux/actions/auth";
-import { getMunicipalities } from "redux/actions/municipality";
 
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
@@ -16,7 +15,6 @@ export default function AppRouter() {
   const dispatch = useDispatch();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isChecking, setIsChecking] = useState(true);
-  const { municipalities } = useSelector((state) => state.municipality);
   const { auth } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -33,11 +31,7 @@ export default function AppRouter() {
         dispatch(finishLoading());
       });
     }
-
-    if (!municipalities) {
-      dispatch(getMunicipalities());
-    }
-  }, [auth, dispatch, municipalities]);
+  }, [auth, dispatch]);
 
   if (isChecking) {
     return <LoadingOverlay />;

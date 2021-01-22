@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toComboBoxOption } from "helpers/municipalityHelper";
 
-import { EuiComboBox, EuiFlexGrid, EuiFlexItem, EuiTitle } from "@elastic/eui";
+import { EuiComboBox, EuiFlexGrid, EuiFlexItem } from "@elastic/eui";
 import { getForecast, removeForecast } from "redux/actions/forecast";
 
 export default function ComboBoxSearch(props) {
@@ -43,11 +43,6 @@ export default function ComboBoxSearch(props) {
 
   return (
     <EuiFlexGrid columns={1} direction="column" gutterSize="s">
-      <EuiFlexItem>
-        <EuiTitle>
-          <h1>Selecciona un municipio</h1>
-        </EuiTitle>
-      </EuiFlexItem>
       <EuiFlexItem>
         <EuiComboBox
           {...props}

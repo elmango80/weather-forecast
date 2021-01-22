@@ -13,24 +13,30 @@ export default function ListForecast() {
   const { favorites } = useSelector((state) => state.favorite);
 
   return (
-    <EuiFlexGrid columns={2} className="forecast__wrapper" gutterSize="xl">
-      {loading && (
-        <EuiFlexItem>
-          <LoadingForecast />
-        </EuiFlexItem>
-      )}
-      {_.values(forecasts)
-        .reverse()
-        .map((item) => {
-          const isFavorite = item.municipalityId in favorites;
-          const docRef = favorites[item.municipalityId];
+    <>
+      <EuiFlexGrid columns={2} className="forecast__wrapper" gutterSize="xl">
+        {loading && (
+          <EuiFlexItem>
+            <LoadingForecast />
+          </EuiFlexItem>
+        )}
+        {_.values(forecasts)
+          .reverse()
+          .map((item) => {
+            const isFavorite = item.municipalityId in favorites;
+            const docRef = favorites[item.municipalityId]?.docRef ?? null;
 
-          return (
-            <EuiFlexItem key={item.municipalityId}>
-              <CardForecast {...item} isFavorite={isFavorite} docRef={docRef} />
-            </EuiFlexItem>
-          );
-        })}
-    </EuiFlexGrid>
+            return (
+              <EuiFlexItem key={item.municipalityId}>
+                <CardForecast
+                  {...item}
+                  isFavorite={isFavorite}
+                  docRef={docRef}
+                />
+              </EuiFlexItem>
+            );
+          })}
+      </EuiFlexGrid>
+    </>
   );
 }

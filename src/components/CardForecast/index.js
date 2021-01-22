@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
 
-import { addFavorites, deleteFavorite } from "redux/actions/user";
+import { addFavorites, deleteFavorite } from "redux/actions/favorite";
 
 import {
   EuiButtonIcon,
@@ -83,6 +84,20 @@ function CardForecast({
                       const data = {
                         municipalityId,
                         uid,
+                        forecast: {
+                          provinceName,
+                          municipalityId,
+                          municipalityName,
+                          date,
+                          stateSkyId,
+                          stateSkyDescription,
+                          currentTemperature,
+                          maxTemperature,
+                          minTemperature,
+                          humidity,
+                          wind,
+                          rain,
+                        },
                       };
 
                       await Promise.all([dispatch(addFavorites(data))]);
@@ -123,7 +138,9 @@ function CardForecast({
       >
         <EuiFlexItem grow={false}>
           <EuiText className="card-content__forecast-info" textAlign="left">
-            <h4 className="card-content__current-date">{date}</h4>
+            <h3 className="card-content__current-date">
+              {moment().locale("es").format("dddd, DD MMM   ")}
+            </h3>
             <div>{stateSkyDescription}</div>
             <div>
               <span className="card-content__temperature-maximun">

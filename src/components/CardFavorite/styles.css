@@ -1,0 +1,143 @@
+.favorites__bottom-bar-wrapper .favorite__panel {
+    position: relative;
+    bottom: calc(3rem - var(--favorite-panel-height, 15rem));
+    background-color: #f5df4d;
+    padding: 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+    width: 8.25rem;
+    width: var(--favorite-panel-weight, 8.25rem);
+    transition: all 0.5s ease;
+}
+
+.favorites__bottom-bar-wrapper .favorite__panel:hover,
+.favorites__bottom-bar-wrapper .favorite__panel:active {
+    -moz-transform: translate(0px, -1rem);
+    -webkit-transform: translate(0px, -1rem);
+    -o-transform: translate(0px, -1rem);
+    -ms-transform: translate(0px, -1rem);
+    transform: translate(0px, calc(3rem - var(--favorite-panel-height, 15rem)));
+}
+
+.favorites__bottom-bar-wrapper .favorite__wrapper {
+    height: 100%;
+}
+
+.favorite__panel .favorite-panel__title {
+    position: relative;
+    left: -0.5rem;
+    top: -0.5rem;
+    width: 8.15rem;
+    width: calc(var(--favorite-panel-weight, 8.15rem) - 0.1rem);
+    padding: 0.5rem;
+    color: #f0eee9;
+    background-color: #00589b;
+    border: none;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.favorite-panel__title .favorite-panel__name {
+    font-size: 1rem;
+    width: 7rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.favorite-panel__content {
+    margin: -0.5rem;
+    padding: 0 0.5rem;
+}
+
+.favorite-panel-content__state-sky {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.favorite-panel__state-sky-description {
+    line-height: 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    max-width: 7rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+.favorite_panel_current-temperature {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.favorite_panel_max-temperature,
+.favorite_panel_min-temperature {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1rem;
+}
+
+.favorite_panel_max-temperature {
+    color: #cf5c78;
+}
+
+.favorite_panel_min-temperature {
+    color: #00a0b0;
+}
+
+.favorite_panel_max-temperature::before {
+    content: "\f058";
+    color: #cf5c78;
+}
+
+.favorite_panel_min-temperature::before {
+    content: "\f044";
+    color: #00a0b0;
+}
+
+.favorite_panel_max-temperature::before,
+.favorite_panel_min-temperature::before {
+    font-family: "weathericons";
+    margin-right: 0.3rem;
+    font-size: inherit;
+}
+
+.favorite_panel_current-temperature::after {
+    font-size: 1.5rem;
+    top: -0.5rem;
+    position: relative;
+}
+
+.favorite_panel_current-temperature::after,
+.favorite_panel_max-temperature::after,
+.favorite_panel_min-temperature::after {
+    content: "ºC";
+}
+
+.favorite-panel__content .favorite-panel__button-remove {
+    margin: 0 -0.5rem;
+}
+
+.favorite-panel__button-remove .button--remove {
+    background-color: #cf5c78;
+    border-color: #cf5c78;
+    color: #fff;
+    height: 2rem;
+    line-height: 1rem;
+    font-size: 1rem;
+    border-radius: 0;
+    transition: all 0.5s ease;
+}
+
+.favorite-panel__button-remove .button--remove:hover,
+.favorite-panel__button-remove .button--remove:focus,
+.favorite-panel__button-remove .button--remove:focus-within {
+    background-color: #ab2143;
+    border-color: #ab2143;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+}

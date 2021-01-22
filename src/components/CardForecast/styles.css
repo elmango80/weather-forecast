@@ -90,13 +90,14 @@
     font-size: inherit;
 }
 
-h4.card-content__current-date {
-    color: #939597;
-    font-weight: 700;
+h3.card-content__current-date {
+    color: #69707d;
+    font-weight: 600;
+    margin: 0.1rem;
 }
 
 .card-content__forecast-info {
-    color: #939597;
+    color: #69707d;
 }
 
 .card-content__state-sky {

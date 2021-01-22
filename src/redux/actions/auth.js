@@ -5,7 +5,7 @@ import {
 } from "firebase/config";
 import { types } from "../types/types";
 import { removeError, setError, startLoading, finishLoading } from "./ui";
-import { getFavorites } from "./user";
+import { getFavorites } from "./favorite";
 
 export const login = ({ uid, displayName, photoURL }) => {
   return (dispatch) => {

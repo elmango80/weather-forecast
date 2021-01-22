@@ -13,10 +13,7 @@ import {
   euiDragDropMove,
   euiDragDropReorder,
   EuiSpacer,
-  EuiPageContentHeader,
-  EuiPageContentHeaderSection,
   EuiPageContentBody,
-  EuiTitle,
 } from "@elastic/eui";
 import { Helmet } from "react-helmet";
 
@@ -26,19 +23,19 @@ export default function Favorites() {
   const [leftDraggable, setLeftDraggable] = useState([]);
   const [rightDraggable, setRightDraggable] = useState([]);
   const { municipalities } = useSelector((state) => state.municipality);
-  const { favorites } = useSelector((state) => state.user);
+  const { favorites } = useSelector((state) => state.favorite);
   const { forecasts } = useSelector((state) => state.forecast);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Object.keys(favorites.municipalities).forEach((municipality) => {
+    Object.keys(favorites).forEach((municipality) => {
       if (municipalities[municipality]) {
         const { provinceId, municipalityId } = municipalities[municipality];
 
         dispatch(getForecast(provinceId, municipalityId));
       }
     });
-  }, [dispatch, favorites.municipalities, municipalities]);
+  }, [dispatch, favorites, municipalities]);
 
   useEffect(() => {
     let index = 0;
@@ -100,20 +97,6 @@ export default function Favorites() {
         <title>El Tiempo | Homepage</title>
       </Helmet>
 
-      <EuiPageContentHeader>
-        <EuiFlexGroup>
-          <EuiFlexItem>
-            <EuiPageContentHeaderSection>
-              <EuiTitle>
-                <h1>Favoritos</h1>
-              </EuiTitle>
-            </EuiPageContentHeaderSection>
-          </EuiFlexItem>
-        </EuiFlexGroup>
-      </EuiPageContentHeader>
-
-      <EuiSpacer size="xxl" />
-
       <EuiPageContentBody>
         <EuiFlexGroup>
           <EuiFlexItem>
@@ -135,8 +118,7 @@ export default function Favorites() {
                         spacing="m"
                       >
                         {(provided, state) => {
-                          const docRef =
-                            favorites.municipalities[forecast.municipalityId];
+                          const { docRef } = favorites[forecast.municipalityId];
 
                           return (
                             <>
@@ -168,8 +150,7 @@ export default function Favorites() {
                         spacing="m"
                       >
                         {(provided, state) => {
-                          const docRef =
-                            favorites.municipalities[forecast.municipalityId];
+                          const { docRef } = favorites[forecast.municipalityId];
 
                           return (
                             <>

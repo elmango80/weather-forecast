@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import ReactLoading from "react-loading";
 
-import { EuiLoadingElastic, EuiOverlayMask } from "@elastic/eui";
+import { EuiOverlayMask } from "@elastic/eui";
 
 export default function LoadingOverlay() {
   const [maskOpen, changeMask] = useState(true);
@@ -13,7 +14,7 @@ export default function LoadingOverlay() {
           changeMask(false);
         }}
       >
-        <EuiLoadingElastic size="xxl" />
+        <ReactLoading className="m-auto" type="bars" color="#f5df4d" />
       </EuiOverlayMask>
     </React.Fragment>
   );

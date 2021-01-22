@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 const Login = React.lazy(() =>
-  import(/*webpackChunkName: "login"*/ "views/login")
+  import(/*webpackChunkName: "login"*/ "pages/login")
 );
 
 const Register = React.lazy(() =>
-  import(/*webpackChunkName: "login"*/ "views/register")
+  import(/*webpackChunkName: "login"*/ "pages/register")
 );
 
 export const AuthRouter = () => {

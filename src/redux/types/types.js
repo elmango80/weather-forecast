@@ -22,7 +22,10 @@ export const types = {
   CLEAR_FORECAST: "[FCST] Clear forecast",
 
   //FAVORITES types
-  GET_FAVORITES: "[FAV] Get user favorites",
-  ADD_FAVORITE: "[FAV] Add a user favorite",
-  DELETE_FAVORITE: "[FAV] Remove a user favorite",
+  FETCH_FAVORITES_REQUEST: "[FAV] Fetch favorites request",
+  FETCH_FAVORITES_SUCCESS: "[FAV] Fetch favorites success",
+  FETCH_FAVORITES_FAILURE: "[FAV] Fetch favorites failure",
+  ADD_FAVORITE: "[FAV] Add a favorite",
+  DELETE_FAVORITE: "[FAV] Remove a favorite",
+  UPDATE_FAVORITE: "[FAV] Update a favorite",
 };

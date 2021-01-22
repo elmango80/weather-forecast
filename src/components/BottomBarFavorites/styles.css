@@ -1,0 +1,24 @@
+.favorites__bottom-bar {
+    box-shadow: none;
+    background-color: transparent;
+    color: #69707d;
+}
+
+.favorites__bottom-bar-wrapper {
+    position: relative;
+    bottom: -1.2rem;
+    height: 14.5rem;
+    height: var(--favorite-panel-height, 14.5rem);
+}
+
+.euiDroppable {
+    transition: none;
+}
+
+.euiDroppable.euiDroppable--isDraggingType:not(.euiDroppable--isDisabled) {
+    background-color: transparent;
+}
+
+.euiDroppable.euiDroppable--isDraggingType:not(.euiDroppable--isDisabled).euiDroppable--isDraggingOver {
+    background-color: transparent;
+}

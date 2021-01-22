@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 
 import ComboBoxSearch from "components/ComboBoxSearch";
 import ListForecast from "components/ListForecast";
+import BottomBarFavorites from "components/BottomBarFavorites";
 
 export default function HomePage() {
   return (
@@ -39,6 +40,7 @@ export default function HomePage() {
           </EuiFlexItem>
         </EuiFlexGroup>
       </EuiPageContentBody>
+      <BottomBarFavorites />
     </>
   );
 }
