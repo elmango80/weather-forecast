@@ -32,6 +32,8 @@ export function updateFavorites(id, data) {
 export function getFavorites(userId) {
   favoritesRef
     .where("userId", "==", userId)
+    .orderby("position", "desc")
+    .limit(1)
     .get()
     .then(getDocuments)
     .catch((e) => console.error(e));

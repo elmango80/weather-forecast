@@ -1,9 +1,16 @@
+:root {
+    --favorite-panel-weight: 8.25rem;
+    --favorite-panel-height: 15rem;
+}
+
 .favorites__bottom-bar-wrapper .favorite__panel {
     position: relative;
     bottom: calc(3rem - var(--favorite-panel-height, 15rem));
     background-color: #f5df4d;
+    background-color: var(--color-bg-medium, #f5df4d);
     padding: 0.5rem;
     border-radius: 1rem 1rem 0 0;
+    height: 100%;
     width: 8.25rem;
     width: var(--favorite-panel-weight, 8.25rem);
     transition: all 0.5s ease;
@@ -30,7 +37,9 @@
     width: calc(var(--favorite-panel-weight, 8.15rem) - 0.1rem);
     padding: 0.5rem;
     color: #f0eee9;
+    color: var(--color-txt-light, #f0eee9);
     background-color: #00589b;
+    background-color: var(--color-bg-dark, #00589b);
     border: none;
     border-radius: 1rem 1rem 0 0;
 }
@@ -82,20 +91,20 @@
 
 .favorite_panel_max-temperature {
     color: #cf5c78;
+    color: var(--color-txt-error, #cf5c78);
 }
 
 .favorite_panel_min-temperature {
     color: #00a0b0;
+    color: var(--color-txt-link, #00a0b0);
 }
 
 .favorite_panel_max-temperature::before {
     content: "\f058";
-    color: #cf5c78;
 }
 
 .favorite_panel_min-temperature::before {
     content: "\f044";
-    color: #00a0b0;
 }
 
 .favorite_panel_max-temperature::before,
@@ -122,9 +131,12 @@
 }
 
 .favorite-panel__button-remove .button--remove {
-    background-color: #cf5c78;
-    border-color: #cf5c78;
-    color: #fff;
+    background-color: #fe4962;
+    background-color: var(--color-negative-light, #fe4962);
+    border-color: #fe4962;
+    border-color: var(--color-negative-light, #fe4962);
+    color: #f0eee9;
+    color: var(--color-txt-light, #f0eee9);
     height: 2rem;
     line-height: 1rem;
     font-size: 1rem;
@@ -136,7 +148,9 @@
 .favorite-panel__button-remove .button--remove:focus,
 .favorite-panel__button-remove .button--remove:focus-within {
     background-color: #ab2143;
+    background-color: var(--color-negative-dark, #fe4962);
     border-color: #ab2143;
+    border-color: var(--color-negative-dark, #fe4962);
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 700;

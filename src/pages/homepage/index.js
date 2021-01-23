@@ -21,7 +21,7 @@ export default function HomePage() {
         <title>El Tiempo | Homepage</title>
       </Helmet>
 
-      <EuiPageContentHeader>
+      <EuiPageContentHeader responsive={false}>
         <EuiFlexGroup>
           <EuiFlexItem>
             <EuiPageContentHeaderSection>

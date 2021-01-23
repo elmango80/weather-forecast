@@ -1,6 +1,20 @@
 :root {
-    --favorite-panel-weight: 8.25rem;
-    --favorite-panel-height: 15rem;
+    --color-txt: #69707d;
+    --color-txt-light: #f0eee9;
+    --color-txt-dark: #00589b;
+    --color-txt-error: #fe4962;
+    --color-txt-link: #00a0b0;
+    --color-white: #fff;
+    --color-primary: #939597;
+    --color-primary-light: #939597;
+    --color-secondary: #f5df4d;
+    --color-tertiary: #00589b;
+    --color-bg: #939597;
+    --color-bg-light: #f0eee9;
+    --color-bg-medium: #f5df4d;
+    --color-bg-dark: #00589b;
+    --color-negative-light: #fe4962;
+    --color-negative-dark: #ab2143;
 }
 
 body {

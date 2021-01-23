@@ -1,5 +1,6 @@
 export function normalizeData(data) {
   return {
+    provinceId: data["municipio"]["CODPROV"],
     provinceName: data["municipio"]["NOMBRE_PROVINCIA"],
     municipalityId: data["municipio"]["CODIGOINE"],
     municipalityName: data["municipio"]["NOMBRE"],

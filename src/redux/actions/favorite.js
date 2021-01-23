@@ -7,24 +7,35 @@ import { types } from "../types/types";
 
 const favoritesRef = db.collection("favorites");
 
-export function addFavorites(data) {
+export function addFavorites({ uid, municipalityId, provinceId, forecast }) {
   return async (dispatch) =>
     favoritesRef
-      .add(data)
-      .then((docRef) => {
-        dispatch({
-          type: types.ADD_FAVORITE,
-          payload: {
-            [data.municipalityId]: {
-              ...data.forecast,
-              docRef: docRef.id,
-            },
-          },
-        });
+      .where("uid", "==", uid)
+      .orderBy("position", "desc")
+      .limit(1)
+      .get()
+      .then((snap) => {
+        const documents = getDocuments(snap);
+        const position = (documents[0]?.position ?? 0) + 1;
+
+        favoritesRef
+          .add({ uid, municipalityId, provinceId, position })
+          .then((docRef) => {
+            dispatch({
+              type: types.ADD_FAVORITE,
+              payload: {
+                [municipalityId]: {
+                  ...forecast,
+                  docRef: docRef.id,
+                },
+              },
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((e) => console.error(e));
 }
 
 export function deleteFavorite(docRef, municipalityId) {
@@ -44,6 +55,16 @@ export function deleteFavorite(docRef, municipalityId) {
   };
 }
 
+export function updatePosition(docRef, position) {
+  return () => {
+    favoritesRef
+      .doc(docRef)
+      .update({ position })
+      .then(() => console.log(`Documento ${docRef} actualizado...`))
+      .catch((error) => console.error(error));
+  };
+}
+
 export function getFavorites(uid) {
   return (dispatch) => {
     dispatch({
@@ -52,46 +73,56 @@ export function getFavorites(uid) {
 
     favoritesRef
       .where("uid", "==", uid)
+      .orderBy("position")
       .get()
-      .then((snap) => {
-        const documents = getDocuments(snap);
+      .then(async (snap) => {
+        const userFavorites = getDocuments(snap);
 
-        let favorites = {};
-
-        documents
-          .reduce(async (acc, { id, municipalityId, provinceId }) => {
-            try {
-              const codeINE = municipalityId.slice(0, 5);
-
-              const response = await axios.get(
-                `/provincias/${provinceId}/municipios/${codeINE}`
-              );
-
-              const data = normalizeData(response.data);
-
-              favorites = {
-                ...favorites,
-                [municipalityId]: { ...data, docRef: id },
-              };
-
-              return;
-            } catch (error) {
-              dispatch({
-                type: types.FETCH_FAVORITES_FAILURE,
-              });
-
-              console.error(error);
-
-              return;
-            }
-          }, {})
-          .then(() => {
-            dispatch({
-              type: types.FETCH_FAVORITES_SUCCESS,
-              payload: favorites,
-            });
+        if (!userFavorites.length) {
+          dispatch({
+            type: types.FETCH_FAVORITES_SUCCESS,
+            payload: {},
           });
+
+          return;
+        }
+
+        const forecastFavorites = {};
+
+        for (const userFavorite of userFavorites) {
+          const { municipalityId, provinceId, id } = userFavorite;
+          const codeINE = municipalityId.slice(0, 5);
+
+          try {
+            const response = await axios.get(
+              `/provincias/${provinceId}/municipios/${codeINE}`
+            );
+            const data = normalizeData(response.data);
+
+            forecastFavorites[municipalityId] = { ...data, docRef: id };
+          } catch (error) {
+            console.error(error);
+
+            dispatch({
+              type: types.FETCH_FAVORITES_FAILURE,
+            });
+
+            return;
+          }
+        }
+
+        dispatch({
+          type: types.FETCH_FAVORITES_SUCCESS,
+          payload: forecastFavorites,
+        });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        dispatch({
+          type: types.FETCH_FAVORITES_FAILURE,
+          payload: error.message,
+        });
+
+        console.error(error);
+      });
   };
 }

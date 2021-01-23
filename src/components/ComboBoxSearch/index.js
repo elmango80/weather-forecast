@@ -43,7 +43,7 @@ export default function ComboBoxSearch(props) {
 
   return (
     <EuiFlexGrid columns={1} direction="column" gutterSize="s">
-      <EuiFlexItem>
+      <EuiFlexItem grow={false}>
         <EuiComboBox
           {...props}
           fullWidth

@@ -44,11 +44,11 @@ function CardFavorite({
             justifyContent="spaceBetween"
             responsive={false}
           >
-            <EuiFlexItem>
+            <EuiFlexItem style={{ marginBottom: "0.5rem" }}>
               <EuiFlexGroup
                 direction="column"
                 gutterSize="none"
-                justifyContent="spaceEvenly"
+                justifyContent="spaceBetween"
                 responsive={false}
               >
                 <EuiFlexItem grow={false}>

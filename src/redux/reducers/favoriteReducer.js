@@ -23,7 +23,6 @@ export default function userReducer(state = initialState, { type, payload }) {
       };
 
     case types.FETCH_FAVORITES_SUCCESS:
-      console.log(payload);
       return {
         ...state,
         loading: false,

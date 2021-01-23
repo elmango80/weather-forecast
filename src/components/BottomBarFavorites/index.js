@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
 
 import {
   EuiBottomBar,
   EuiDragDropContext,
-  euiDragDropMove,
   euiDragDropReorder,
   EuiDraggable,
   EuiDroppable,
@@ -16,43 +15,51 @@ import {
 import CardFavorite from "components/CardFavorite";
 
 import "./styles.css";
+import { updatePosition } from "redux/actions/favorite";
 
 export default function BottomBarFavorites() {
-  const [list, setList] = useState([]);
+  const dispatch = useDispatch();
+  const [draggables, setDraggables] = useState([]);
   const { favorites, loading } = useSelector((state) => state.favorite);
   const droppableId = htmlIdGenerator()();
 
   useEffect(() => {
-    setList(Object.keys(favorites));
+    setDraggables(Object.keys(favorites));
   }, [favorites]);
 
-  const onDragEnd = ({ source, destination }) => {
-    const lists = { [droppableId]: list };
-    const actions = { [droppableId]: setList };
+  const updateFavPosition = (source, destination, items) => {
+    let start, end;
 
-    if (source && destination) {
-      if (source.droppableId === destination.droppableId) {
-        const items = euiDragDropReorder(
-          lists[destination.droppableId],
-          source.index,
-          destination.index
-        );
-
-        actions[destination.droppableId](items);
-      } else {
-        const sourceId = source.droppableId;
-        const destinationId = destination.droppableId;
-        const result = euiDragDropMove(
-          lists[sourceId],
-          lists[destinationId],
-          source,
-          destination
-        );
-
-        actions[sourceId](result[sourceId]);
-        actions[destinationId](result[destinationId]);
-      }
+    if (source > destination) {
+      start = destination;
+      end = items.length;
+    } else if (source < destination) {
+      start = source;
+      end = ++destination;
     }
+
+    items.slice(start, end).forEach((index) => {
+      dispatch(updatePosition(favorites[index].docRef, ++start));
+    });
+  };
+
+  const onDragEnd = ({ source, destination }) => {
+    const lists = { [droppableId]: draggables };
+    const actions = { [droppableId]: setDraggables };
+
+    if (!source || !destination) {
+      return;
+    }
+
+    const items = euiDragDropReorder(
+      lists[destination.droppableId],
+      source.index,
+      destination.index
+    );
+
+    actions[destination.droppableId](items);
+
+    updateFavPosition(source.index, destination.index, items);
   };
 
   return (
@@ -67,28 +74,19 @@ export default function BottomBarFavorites() {
                   droppableId={droppableId}
                   direction="horizontal"
                   spacing="none"
-                  style={{ display: "flex" }}
                 >
-                  {list.map((municipalityId, index) => {
-                    const item = favorites[municipalityId];
-
-                    if (!item) {
-                      return <></>;
-                    }
+                  {draggables.map((draggable, index) => {
+                    const favorite = favorites[draggable];
 
                     return (
                       <EuiDraggable
-                        key={municipalityId}
+                        key={draggable}
                         index={index}
-                        draggableId={municipalityId}
+                        draggableId={draggable}
                         spacing="m"
                         disableInteractiveElementBlocking // Allows button to be drag handle
                       >
-                        {(provided) => {
-                          const { docRef } = favorites[item.municipalityId];
-
-                          return <CardFavorite {...item} docRef={docRef} />;
-                        }}
+                        {(provided) => <CardFavorite {...favorite} />}
                       </EuiDraggable>
                     );
                   })}

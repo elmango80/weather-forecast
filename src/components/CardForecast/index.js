@@ -19,6 +19,7 @@ import "./styles.css";
 import "styles/weather-icons.css";
 
 function CardForecast({
+  provinceId,
   provinceName,
   municipalityId,
   municipalityName,
@@ -83,6 +84,7 @@ function CardForecast({
                     } else {
                       const data = {
                         municipalityId,
+                        provinceId,
                         uid,
                         forecast: {
                           provinceName,
