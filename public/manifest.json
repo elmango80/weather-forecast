@@ -1,6 +1,6 @@
 {
-    "short_name": "Weather Forecast",
-    "name": "Weather Forecast React App",
+    "short_name": "El Tiempo",
+    "name": "El Tiempo: React | Elastic UI | Redux | Firebase",
     "icons": [{
             "src": "favicon.ico",
             "sizes": "64x64 32x32 24x24 16x16",
@@ -19,6 +19,6 @@
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "theme_color": "#f5df4d",
+    "background_color": "#f0eee9"
 }
