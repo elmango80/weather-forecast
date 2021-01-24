@@ -183,8 +183,8 @@ CardForecast.propTypes = {
   humidity: PropTypes.string.isRequired,
   wind: PropTypes.string.isRequired,
   rain: PropTypes.string.isRequired,
-  isFavorite: PropTypes.string.isRequired,
-  docRef: PropTypes.string.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  docRef: PropTypes.string,
 };
 
 export default React.memo(CardForecast);
