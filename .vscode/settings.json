@@ -1,10 +1,11 @@
 {
-    "cSpell.enabled": true,
-    "cSpell.ignoreWords": [
-        "Formik",
-        "axios",
-        "draggables",
-        "firestore",
-        "lastname"
-    ]
+  "cSpell.enabled": true,
+  "cSpell.ignoreWords": [
+    "formik",
+    "axios",
+    "draggables",
+    "firestore",
+    "lastname",
+    "zindex"
+  ]
 }

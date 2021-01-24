@@ -8,7 +8,7 @@ import { EuiPageContent, EuiPageContentBody } from "@elastic/eui";
 export default function Content() {
   return (
     <EuiPageContent
-      verticalPosition="center"
+      // verticalPosition="start"
       hasShadow={false}
       color="transparent"
       panelPaddingSize="none"

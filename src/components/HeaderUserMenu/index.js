@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
 
 import { signOut } from "redux/actions/auth";
@@ -74,10 +74,7 @@ export default function HeaderUserMenu() {
             <EuiSpacer size="m" />
 
             <EuiFlexItem>
-              <EuiFlexGroup justifyContent="spaceBetween">
-                <EuiFlexItem grow={false}>
-                  <Link to="/favoritos">Favoritos</Link>
-                </EuiFlexItem>
+              <EuiFlexGroup justifyContent="flexStart">
                 <EuiFlexItem grow={false}>
                   <Link onClick={handleLogout} to="#">
                     Salir

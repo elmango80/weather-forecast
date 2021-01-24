@@ -28,11 +28,8 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.page {
-    min-height: 100vh;
-}
-
-.page--with-header {
-    margin-top: 2rem;
-    min-height: 0;
+@media (min-width: 768px) {
+    .page--with-header {
+        margin-top: 2rem;
+    }
 }

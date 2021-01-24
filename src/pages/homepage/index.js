@@ -3,12 +3,14 @@ import React from "react";
 import {
   EuiFlexGroup,
   EuiFlexItem,
+  EuiHideFor,
   EuiPageContentBody,
   EuiPageContentHeader,
   EuiPageContentHeaderSection,
   EuiSpacer,
 } from "@elastic/eui";
 import { Helmet } from "react-helmet";
+import ForecastNational from "components/ForecastNational";
 
 import ComboBoxSearch from "components/ComboBoxSearch";
 import ListForecast from "components/ListForecast";
@@ -18,7 +20,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>El Tiempo | Homepage</title>
+        <title>El Tiempo | España</title>
       </Helmet>
 
       <EuiPageContentHeader responsive={false}>
@@ -31,12 +33,24 @@ export default function HomePage() {
         </EuiFlexGroup>
       </EuiPageContentHeader>
 
-      <EuiSpacer size="xxl" />
+      <EuiHideFor sizes={["xs"]}>
+        <EuiSpacer size="xxl" />
+      </EuiHideFor>
 
       <EuiPageContentBody>
-        <EuiFlexGroup>
+        <EuiFlexGroup direction="column">
           <EuiFlexItem>
-            <ListForecast />
+            <EuiFlexGroup>
+              <EuiFlexItem>
+                <ListForecast />
+              </EuiFlexItem>
+            </EuiFlexGroup>
+          </EuiFlexItem>
+          <EuiHideFor sizes={["xs"]}>
+            <EuiSpacer size="xxl" />
+          </EuiHideFor>
+          <EuiFlexItem>
+            <ForecastNational />
           </EuiFlexItem>
         </EuiFlexGroup>
       </EuiPageContentBody>

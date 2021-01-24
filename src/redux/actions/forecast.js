@@ -33,9 +33,13 @@ export const getForecast = (provinceId, municipalityId) => {
         dispatch(fetchForecastSuccess(data, municipalityId));
       })
       .catch((error) => {
-        dispatch(fetchForecastFailure(error.message));
+        dispatch(
+          fetchForecastFailure(
+            "No se ha podido obtener el pronóstico del clima"
+          )
+        );
 
-        console.error("No se ha podido obtener el pronóstico del clima");
+        console.error(error);
       });
   };
 };

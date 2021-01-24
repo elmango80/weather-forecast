@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   EuiButton,
@@ -127,5 +128,16 @@ function CardFavorite({
     </EuiPanel>
   );
 }
+
+CardFavorite.propTypes = {
+  municipalityId: PropTypes.string.isRequired,
+  municipalityName: PropTypes.string.isRequired,
+  stateSkyId: PropTypes.string.isRequired,
+  stateSkyDescription: PropTypes.string.isRequired,
+  currentTemperature: PropTypes.string.isRequired,
+  maxTemperature: PropTypes.string.isRequired,
+  minTemperature: PropTypes.string.isRequired,
+  docRef: PropTypes.string.isRequired,
+};
 
 export default React.memo(CardFavorite);

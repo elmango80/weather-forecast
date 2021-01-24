@@ -9,9 +9,10 @@ import {
   EuiHideFor,
   EuiIcon,
   EuiText,
+  EuiTitle,
 } from "@elastic/eui";
 
-import logo from "logo.svg";
+import logo from "logo.png";
 
 import HeaderUserMenu from "components/HeaderUserMenu";
 
@@ -23,15 +24,22 @@ export default function Header() {
       <EuiHeaderSection>
         <EuiHeaderSectionItem border="none">
           <Link to="/">
-            <EuiIcon type={logo} size="xl" className="euiHeaderLogo__icon" />
+            <EuiIcon type={logo} size="xxl" className="euiHeaderLogo__icon" />
           </Link>
         </EuiHeaderSectionItem>
+        <EuiHideFor sizes={["xs", "s"]}>
+          <EuiHeaderSectionItem border="none" style={{ marginLeft: ".5rem" }}>
+            <EuiTitle>
+              <span>Pronostico meteorológico en España</span>
+            </EuiTitle>
+          </EuiHeaderSectionItem>
+        </EuiHideFor>
       </EuiHeaderSection>
 
       <EuiHeaderSection side="right">
         <EuiHideFor sizes={["xs", "s"]}>
-          <EuiHeaderSectionItem border="none">
-            <EuiText size="s">Hola, {displayName}</EuiText>
+          <EuiHeaderSectionItem border="none" style={{ marginRight: ".5rem" }}>
+            <EuiText size="s">{`Hola, ${displayName}`}</EuiText>
           </EuiHeaderSectionItem>
         </EuiHideFor>
         <EuiHeaderSectionItem border="none">

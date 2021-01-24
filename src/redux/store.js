@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const composeEnhancers =
-  (process.env.NODE_ENV &&
+  (process.env.NODE_ENV !== "production" &&
     typeof window &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;

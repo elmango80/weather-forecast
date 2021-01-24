@@ -29,7 +29,7 @@ export default function Layout() {
   return (
     <>
       <Header />
-      <EuiPage className="page page--with-header" restrictWidth>
+      <EuiPage className="page--with-header" restrictWidth>
         <EuiPageBody>
           <Content />
           {loading && <LoadingOverlay />}

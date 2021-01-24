@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <LoadingOverlay /> renders correctly 1`] = `
+<Fragment>
+  <EuiOverlayMask
+    headerZindexLocation="below"
+  >
+    <Loading
+      className="m-auto"
+      color="#f5df4d"
+      delay={0}
+      height={64}
+      type="bars"
+      width={64}
+    />
+  </EuiOverlayMask>
+</Fragment>
+`;

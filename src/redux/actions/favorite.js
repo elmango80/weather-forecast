@@ -35,7 +35,7 @@ export function addFavorites({ uid, municipalityId, provinceId, forecast }) {
             console.error(error);
           });
       })
-      .catch((e) => console.error(e));
+      .catch((error) => console.error(error));
 }
 
 export function deleteFavorite(docRef, municipalityId) {

@@ -34,9 +34,13 @@ export const getMunicipalities = () => {
         dispatch(fetchMunicipalitySuccess(data));
       })
       .catch((error) => {
-        dispatch(fetchMunicipalityFailure(error.message));
+        dispatch(
+          fetchMunicipalityFailure(
+            "No se ha podido obtener la lista de municipios"
+          )
+        );
 
-        console.error("No se ha podido obtener la lista de municipios");
+        console.error(error);
       });
   };
 };

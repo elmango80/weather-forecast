@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <LoadingForecast /> renders correctly 1`] = `
+<Fragment>
+  <EuiCard
+    betaBadgeLabel="cargando"
+    className="forecast__card forecast__card--loading"
+    description={
+      <React.Fragment>
+        Cargando
+      </React.Fragment>
+    }
+    textAlign="left"
+    title={
+      <EuiFlexGroup
+        alignItems="stretch"
+        gutterSize="l"
+        justifyContent="spaceBetween"
+        responsive={false}
+      >
+        <EuiFlexItem>
+          <EuiLoadingContent
+            lines={1}
+          />
+        </EuiFlexItem>
+        <EuiFlexItem
+          grow={false}
+        >
+          <EuiButtonIcon
+            aria-label="Add to favorites"
+            className="card-title__button-icon"
+            disabled={true}
+            iconSize="xl"
+            iconType="starEmpty"
+          />
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    }
+  >
+    <EuiFlexGroup
+      alignItems="center"
+      className="forecast__card-content"
+      justifyContent="spaceBetween"
+      responsive={false}
+    >
+      <EuiFlexItem
+        grow={false}
+      >
+        <EuiLoadingContent
+          lines={3}
+        />
+      </EuiFlexItem>
+      <EuiFlexItem
+        grow={false}
+      >
+        <EuiLoadingContent
+          lines={2}
+        />
+      </EuiFlexItem>
+    </EuiFlexGroup>
+    <EuiFlexGroup
+      alignItems="center"
+      className="forecast__card-content"
+      justifyContent="spaceBetween"
+      responsive={false}
+    >
+      <EuiFlexItem
+        grow={false}
+      >
+        <EuiLoadingContent
+          lines={3}
+        />
+      </EuiFlexItem>
+      <EuiFlexItem
+        grow={false}
+      >
+        <EuiLoadingContent
+          lines={3}
+        />
+      </EuiFlexItem>
+    </EuiFlexGroup>
+  </EuiCard>
+</Fragment>
+`;

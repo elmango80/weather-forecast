@@ -34,9 +34,6 @@
     "dependencies": {
         "@elastic/datemath": "^5.0.3",
         "@elastic/eui": "^31.2.0",
-        "@testing-library/jest-dom": "^5.11.9",
-        "@testing-library/react": "^11.2.3",
-        "@testing-library/user-event": "^12.6.0",
         "axios": "^0.21.1",
         "dotenv": "^8.2.0",
         "firebase": "^8.2.3",
@@ -57,6 +54,10 @@
         "yup": "^0.32.8"
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^5.11.9",
+        "@testing-library/react": "^11.2.3",
+        "@testing-library/react-hooks": "^5.0.3",
+        "@testing-library/user-event": "^12.6.2",
         "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
         "enzyme": "^3.11.0",
         "enzyme-to-json": "^3.6.1",

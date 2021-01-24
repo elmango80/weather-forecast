@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 
@@ -17,6 +18,8 @@ import {
 
 import "./styles.css";
 import "styles/weather-icons.css";
+
+moment.locale("es");
 
 function CardForecast({
   provinceId,
@@ -165,5 +168,23 @@ function CardForecast({
     </EuiCard>
   );
 }
+
+CardForecast.propTypes = {
+  provinceId: PropTypes.string.isRequired,
+  provinceName: PropTypes.string.isRequired,
+  municipalityId: PropTypes.string.isRequired,
+  municipalityName: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  stateSkyId: PropTypes.string.isRequired,
+  stateSkyDescription: PropTypes.string.isRequired,
+  currentTemperature: PropTypes.string.isRequired,
+  maxTemperature: PropTypes.string.isRequired,
+  minTemperature: PropTypes.string.isRequired,
+  humidity: PropTypes.string.isRequired,
+  wind: PropTypes.string.isRequired,
+  rain: PropTypes.string.isRequired,
+  isFavorite: PropTypes.string.isRequired,
+  docRef: PropTypes.string.isRequired,
+};
 
 export default React.memo(CardForecast);
