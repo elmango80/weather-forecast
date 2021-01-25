@@ -19,7 +19,7 @@ export default function Register() {
       <Helmet>
         <title>El Tiempo | Registrase</title>
       </Helmet>
-      <EuiPage className="page">
+      <EuiPage className="public-page">
         <EuiPageBody component="section">
           <EuiPageContent verticalPosition="center" horizontalPosition="center">
             <EuiPageContentHeader>

@@ -17,7 +17,7 @@ export default function Login() {
       <Helmet>
         <title>El Tiempo | Ingresar</title>
       </Helmet>
-      <EuiPage className="page">
+      <EuiPage className="public-page">
         <EuiPageBody component="section">
           <EuiPageContent verticalPosition="center" horizontalPosition="center">
             <EuiPageContentBody>
