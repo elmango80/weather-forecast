@@ -31,10 +31,9 @@ describe("Test authReducer", () => {
     const action = {
       type: types.LOGOUT,
     };
-
     const state = authReducer(initialState, action);
 
-    expect(state).toEqual({});
+    expect(state).toEqual(initialState);
   });
 
   test("should don't changes to the state", () => {

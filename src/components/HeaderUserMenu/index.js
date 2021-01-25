@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { htmlIdGenerator } from "@elastic/eui/lib/services";
 
 import { signOut } from "redux/actions/auth";
 
@@ -20,8 +19,6 @@ export default function HeaderUserMenu() {
   const dispatch = useDispatch();
   const { displayName, photoURL } = useSelector((state) => state.auth);
 
-  const id = htmlIdGenerator()();
-
   const onMenuButtonClick = () => {
     setIsOpen(!isOpen);
   };
@@ -36,7 +33,7 @@ export default function HeaderUserMenu() {
 
   const button = (
     <EuiHeaderSectionItemButton
-      aria-controls={id}
+      aria-controls="user-popover"
       aria-expanded={isOpen}
       aria-haspopup="true"
       aria-label="Menu usuario autenticado"
@@ -48,7 +45,7 @@ export default function HeaderUserMenu() {
 
   return (
     <EuiPopover
-      id={id}
+      id="user-popover"
       ownFocus
       button={button}
       isOpen={isOpen}

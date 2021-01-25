@@ -18,7 +18,7 @@ Para el diseño de la UI se utilizo [Elastic UI](https://eui.elastic.co/).
 
 Finalmente, las pruebas están desarrollados con [Jest](https://jestjs.io/) y [Enzyme](https://enzymejs.github.io/enzyme/).
 
-## 📁 Esructura del repositorio
+## 📁 Estructura del repositorio
 
 - **/gitlhub**: Configuración de Github.
 - **/public**: Todos los archivos publicos como imágenes, favicon, etc.
@@ -27,7 +27,7 @@ Finalmente, las pruebas están desarrollados con [Jest](https://jestjs.io/) y [E
 
 👉 [Ver diagrama completo del repositorio](https://whimsical.com/weather-forecast-VtS26ywEK55zPpTmLH9J9a)
 
-## 🏃 Intalar dependencias
+## 🏃 Instalar dependencias
 
 - Correr `npm install` o `npm ci` para instalar las dependencias.
 
@@ -39,13 +39,14 @@ Asegurate de estar en el root del directorio y ejecuta el siguiente comando para
 
 Si todo anda bien, deberías ver el sitio en: http://localhost:3000
 
-> Puedes encontrar mas comandos en el [package.json](https://git.aerolab.co/invertir-online/website-redesign/-/blob/develop/package.json) del proyecto
+> Puedes encontrar mas comandos en el [package.json](https://github.com/elmango80/weather-forecast/blob/master/package.json) del proyecto
+> Puedes encontrar mas comandos en el [package.json]() del proyecto
 
 ## 🚀 Deploy
 
 El proyecto se despliega de forma automática en la plataforma de [Vercel](https://vercel.com/).
 
-[DEMO](weather-forecast-sigma.vercel.app)
+[DEMO](https://weather-forecast-sigma.vercel.app/)
 
 ## 🔦 Linter
 

@@ -5,11 +5,7 @@ exports[`Test <LoadingForecast /> renders correctly 1`] = `
   <EuiCard
     betaBadgeLabel="cargando"
     className="forecast__card forecast__card--loading"
-    description={
-      <React.Fragment>
-        Cargando
-      </React.Fragment>
-    }
+    description={<React.Fragment />}
     textAlign="left"
     title={
       <EuiFlexGroup

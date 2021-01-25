@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <ForecastNational /> renders correctly 1`] = `
+<EuiPanel
+  className="panel-forecast-national"
+>
+  <EuiTitle>
+    <span>
+      Previsión España
+    </span>
+  </EuiTitle>
+  <EuiSpacer
+    size="l"
+  />
+</EuiPanel>
+`;
+
+exports[`Test <ForecastNational /> should show the national forecast for today and tomorrow 1`] = `
+<EuiPanel
+  className="panel-forecast-national"
+>
+  <EuiTitle>
+    <span>
+      Previsión España
+    </span>
+  </EuiTitle>
+  <EuiSpacer
+    size="l"
+  />
+  <EuiTabbedContent
+    autoFocus="selected"
+    initialSelectedTab={
+      Object {
+        "content": <React.Fragment>
+          <EuiSpacer />
+          <React.Fragment>
+            <EuiText
+              data-test-subj="forecast-national"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae sodales magna. Nulla tristique mi id sem vulputate, non egestas lacus sodales.
+            </EuiText>
+            <EuiSpacer />
+          </React.Fragment>
+          <React.Fragment>
+            <EuiText
+              data-test-subj="forecast-national"
+            >
+              Aliquam tristique porttitor turpis sit amet tristique. Nulla sed pharetra magna. Phasellus elementum in felis non efficitur. Nulla facilisi.
+            </EuiText>
+            <EuiSpacer />
+          </React.Fragment>
+          <React.Fragment>
+            <EuiText
+              data-test-subj="forecast-national"
+            >
+              Integer sodales est id pulvinar maximus. Duis vel tellus imperdiet, tincidunt ipsum eget, tristique libero. In a diam ut arcu porta consectetur.
+            </EuiText>
+            <EuiSpacer />
+          </React.Fragment>
+        </React.Fragment>,
+        "id": "today-forecast-tab",
+        "name": "Hoy",
+      }
+    }
+    tabs={
+      Array [
+        Object {
+          "content": <React.Fragment>
+            <EuiSpacer />
+            <React.Fragment>
+              <EuiText
+                data-test-subj="forecast-national"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae sodales magna. Nulla tristique mi id sem vulputate, non egestas lacus sodales.
+              </EuiText>
+              <EuiSpacer />
+            </React.Fragment>
+            <React.Fragment>
+              <EuiText
+                data-test-subj="forecast-national"
+              >
+                Aliquam tristique porttitor turpis sit amet tristique. Nulla sed pharetra magna. Phasellus elementum in felis non efficitur. Nulla facilisi.
+              </EuiText>
+              <EuiSpacer />
+            </React.Fragment>
+            <React.Fragment>
+              <EuiText
+                data-test-subj="forecast-national"
+              >
+                Integer sodales est id pulvinar maximus. Duis vel tellus imperdiet, tincidunt ipsum eget, tristique libero. In a diam ut arcu porta consectetur.
+              </EuiText>
+              <EuiSpacer />
+            </React.Fragment>
+          </React.Fragment>,
+          "id": "today-forecast-tab",
+          "name": "Hoy",
+        },
+        Object {
+          "content": <React.Fragment>
+            <EuiSpacer />
+            <React.Fragment>
+              <EuiText
+                data-test-subj="forecast-national"
+              >
+                Etiam non viverra felis. Nullam aliquet ex quis lobortis luctus. Nulla eu ipsum et est pulvinar venenatis ut vel metus. Nunc ac hendrerit nisl. Vivamus hendrerit dictum nunc sed volutpat.
+              </EuiText>
+              <EuiSpacer />
+            </React.Fragment>
+            <React.Fragment>
+              <EuiText
+                data-test-subj="forecast-national"
+              >
+                Cras quis risus quis mi dictum elementum at condimentum dui. Nunc eu consequat velit. Phasellus id fringilla ligula.
+              </EuiText>
+              <EuiSpacer />
+            </React.Fragment>
+          </React.Fragment>,
+          "id": "tomorrow-forecast-tab",
+          "name": "Mañana",
+        },
+      ]
+    }
+  />
+</EuiPanel>
+`;

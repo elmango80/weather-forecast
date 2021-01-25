@@ -5,8 +5,6 @@ import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import "@testing-library/jest-dom";
 
-import { signOut } from "redux/actions/auth";
-
 import HeaderUserMenu from "./index";
 
 const middleware = [thunk];

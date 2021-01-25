@@ -9,6 +9,7 @@ export const useFetchApi = () => {
   });
 
   useEffect(() => {
+    console.log(axios.defaults.baseURL);
     axios
       .get(`/home`)
       .then((response) => {
@@ -26,7 +27,7 @@ export const useFetchApi = () => {
           msgError: "No se ha podido obtener el pronóstico nacional",
         });
 
-        console.error(error);
+        // console.error(error);
       });
   }, []);
 
