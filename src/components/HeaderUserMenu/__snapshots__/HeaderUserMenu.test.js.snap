@@ -3,13 +3,13 @@
 exports[`Test <HeaderUserMenu /> renders correctly 1`] = `
 <div
   className="euiPopover euiPopover--anchorDownRight"
-  id="i5e2d9660-5ef0-11eb-b5f6-75b89bdf7cfa"
+  id="i7b1b3b01-5ef6-11eb-8625-63fa1e9c7b89"
 >
   <div
     className="euiPopover__anchor"
   >
     <button
-      aria-controls="i5e2d9660-5ef0-11eb-b5f6-75b89bdf7cfa"
+      aria-controls="i7b1b3b01-5ef6-11eb-8625-63fa1e9c7b89"
       aria-expanded={false}
       aria-haspopup="true"
       aria-label="Menu usuario autenticado"
