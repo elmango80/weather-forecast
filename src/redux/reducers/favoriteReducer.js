@@ -7,12 +7,6 @@ const initialState = {
   msgError: null,
 };
 
-// FETCH_FAVORITES_REQUEST: "[FAV] Fetch favorites request",
-// FETCH_FAVORITES_SUCCESS: "[FAV] Fetch favorites success",
-// FETCH_FAVORITES_FAILURE: "[FAV] Fetch favorites failure",
-// ADD_FAVORITE: "[FAV] Add a favorite",
-// DELETE_FAVORITE: "[FAV] Remove a favorite",
-// UPDATE_FAVORITE: "[FAV] Update a favorite",
 export default function userReducer(state = initialState, { type, payload }) {
   switch (type) {
     case types.FETCH_FAVORITES_REQUEST:

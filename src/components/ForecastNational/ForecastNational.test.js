@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 
 import { useFetchApi } from "hooks/useFetchApi";
 
-import { ForecastNational } from "components/ForecastNational";
+import ForecastNational from "components/ForecastNational";
 
 jest.mock("hooks/useFetchApi");
 

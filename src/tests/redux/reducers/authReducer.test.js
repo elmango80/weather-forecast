@@ -1,4 +1,4 @@
-import { authReducer } from "redux/reducers/authReducer";
+import authReducer from "redux/reducers/authReducer";
 import { types } from "redux/types/types";
 
 const initialState = {
@@ -14,6 +14,7 @@ describe("Test authReducer", () => {
       payload: {
         uid: "IejeJtqqpMbZQMtFVGhwBibaCDM2",
         displayName: "John Doe",
+        photoURL: "http://dummyimage.com/133x128.png",
       },
     };
 
@@ -22,6 +23,7 @@ describe("Test authReducer", () => {
     expect(state).toEqual({
       uid: "IejeJtqqpMbZQMtFVGhwBibaCDM2",
       displayName: "John Doe",
+      photoURL: "http://dummyimage.com/133x128.png",
     });
   });
 

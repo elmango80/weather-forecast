@@ -39,7 +39,7 @@ export default function LoadingForecast() {
             </EuiFlexItem>
           </EuiFlexGroup>
         }
-        description={<>Cargando</>}
+        description={<></>}
       >
         <EuiFlexGroup
           className="forecast__card-content"

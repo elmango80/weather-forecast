@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Índice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Tecnologías](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#tecnolog%C3%ADas)
+- [Estructura del repositorio](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#esructura-del-repositorio)
+- [Intalar dependencias](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#1-intalar-dependencias)
+- [Iniciar el proyecto](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#3-iniciar-el-proyecto-modo-dev)
+- [Deploy](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#4-deploy)
+- [Linter ](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#5-linter)
+- [Testing](https://git.aerolab.co/invertir-online/website-redesign/-/blob/master/README.md#6-testing)
 
-## Available Scripts
+## 💻 Tecnologías
 
-In the project directory, you can run:
+El proyecto fue realizado con [React](https://reactjs.org/), [Redux](https://es.redux.js.org/) y se implemento [Redux-Thunk](https://github.com/reduxjs/redux-thunk) como middleware.
 
-### `npm start`
+Se utilizo la plataforma de [Firebase](https://firebase.google.com/), para la persistencia de datos y administrar los usuarios de la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para el diseño de la UI se utilizo [Elastic UI](https://eui.elastic.co/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Finalmente, las pruebas están desarrollados con [Jest](https://jestjs.io/) y [Enzyme](https://enzymejs.github.io/enzyme/).
 
-### `npm test`
+## 📁 Esructura del repositorio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **/gitlhub**: Configuración de Github.
+- **/public**: Todos los archivos publicos como imágenes, favicon, etc.
+- **/src/components**: Los componentes de proyecto.
+- **/src/pages**: Las páginas del proyecto.
 
-### `npm run build`
+👉 [Ver diagrama completo del repositorio](https://whimsical.com/weather-forecast-VtS26ywEK55zPpTmLH9J9a)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏃 Intalar dependencias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Correr `npm install` o `npm ci` para instalar las dependencias.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚒️ Iniciar el proyecto
 
-### `npm run eject`
+Asegurate de estar en el root del directorio y ejecuta el siguiente comando para iniciar proyecto en modo desarrollo.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si todo anda bien, deberías ver el sitio en: http://localhost:3000
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Puedes encontrar mas comandos en el [package.json](https://git.aerolab.co/invertir-online/website-redesign/-/blob/develop/package.json) del proyecto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🚀 Deploy
 
-## Learn More
+El proyecto se despliega de forma automática en la plataforma de [Vercel](https://vercel.com/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[DEMO](weather-forecast-sigma.vercel.app)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔦 Linter
 
-### Code Splitting
+El proyecto utiliza un hook de git para iniciar Prettier automáticamente antes de realizar cualquier commit. También puede inicializarse manualmente cada vez que lo requiera:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `npm run lint`: Runs the linter project-wide.
+- `npm run lint:fix`: Fixes ESLint issues.
 
-### Analyzing the Bundle Size
+## 🧪 Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+El proyecto contiene test de componentes, que se pueden encontrar junto al componente con el sufijo .test.js. Ademas existen otros test unitarios para custom hooks y redux.
 
-### Making a Progressive Web App
+El proyecto utiliza usando Jest como test framework.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Puedes ejecutar los siguientes comandos:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm run test`: Run tests.

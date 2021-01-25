@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
 
@@ -13,6 +12,7 @@ import {
   EuiSpacer,
   EuiText,
   EuiHeaderSectionItemButton,
+  EuiButtonEmpty,
 } from "@elastic/eui";
 
 export default function HeaderUserMenu() {
@@ -74,11 +74,16 @@ export default function HeaderUserMenu() {
             <EuiSpacer size="m" />
 
             <EuiFlexItem>
-              <EuiFlexGroup justifyContent="flexStart">
+              <EuiFlexGroup justifyContent="flexEnd">
                 <EuiFlexItem grow={false}>
-                  <Link onClick={handleLogout} to="#">
+                  <EuiButtonEmpty
+                    iconType="exit"
+                    size="s"
+                    onClick={handleLogout}
+                    data-test-subj="logout-button"
+                  >
                     Salir
-                  </Link>
+                  </EuiButtonEmpty>
                 </EuiFlexItem>
               </EuiFlexGroup>
             </EuiFlexItem>

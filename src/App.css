@@ -2,6 +2,10 @@
     min-width: 200px;
 }
 
+.public-page {
+    min-height: 100vh;
+}
+
 
 /* Medium devices (tablets, 768px and up) */
 

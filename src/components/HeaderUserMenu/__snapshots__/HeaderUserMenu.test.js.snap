@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <HeaderUserMenu /> renders correctly 1`] = `
+<div
+  className="euiPopover euiPopover--anchorDownRight"
+  id="i5e2d9660-5ef0-11eb-b5f6-75b89bdf7cfa"
+>
+  <div
+    className="euiPopover__anchor"
+  >
+    <button
+      aria-controls="i5e2d9660-5ef0-11eb-b5f6-75b89bdf7cfa"
+      aria-expanded={false}
+      aria-haspopup="true"
+      aria-label="Menu usuario autenticado"
+      className="euiHeaderSectionItem__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <div
+        aria-label="John Doe"
+        className="euiAvatar euiAvatar--l euiAvatar--user"
+        style={
+          Object {
+            "backgroundColor": "#c47c6c",
+            "backgroundImage": "url(http://dummyimage.com/133x128.png)",
+            "color": "#000000",
+          }
+        }
+        title="John Doe"
+      />
+    </button>
+  </div>
+</div>
+`;
