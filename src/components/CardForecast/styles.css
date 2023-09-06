@@ -1,170 +1,175 @@
 @font-face {
-    font-family: "weathericons";
-    src: url("font/weathericons-regular-webfont.eot");
-    src: url("font/weathericons-regular-webfont.eot?#iefix") format("embedded-opentype"), url("font/weathericons-regular-webfont.woff2") format("woff2"), url("font/weathericons-regular-webfont.woff") format("woff"), url("font/weathericons-regular-webfont.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "weathericons";
+  src: url("font/weathericons-regular-webfont.eot");
+  src:
+    url("font/weathericons-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("font/weathericons-regular-webfont.woff2") format("woff2"),
+    url("font/weathericons-regular-webfont.woff") format("woff"),
+    url("font/weathericons-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .forecast__card {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    border: 1px solid #00589b;
-    background-color: #00589b;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border: 1px solid #00589b;
+  background-color: #00589b;
 }
 
 .forecast__card:hover {
-    -moz-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.05);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .euiCard--hasBetaBadge .euiCard__betaBadgeWrapper .euiCard__betaBadge {
-    background-color: #00589b;
-    color: #fff;
+  background-color: #00589b;
+  color: #fff;
 }
 
 .forecast__card-content {
-    background-color: #f0eee9;
+  background-color: #f0eee9;
 }
 
 .card-title__title {
-    color: #f0eee9;
-    font-weight: 600;
+  color: #f0eee9;
+  font-weight: 600;
 }
 
 .card-title__button-icon {
-    color: #f5df4d;
+  color: #f5df4d;
 }
 
 .card-content__temperature-current {
-    color: #00589b;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1;
-    margin: 0;
+  color: #00589b;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
 }
 
 .card-content__temperature-maximun,
 .card-content__temperature-minimun {
-    font-style: normal;
-    font-weight: bold;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-right: 1rem;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 1rem;
 }
 
 .card-content__temperature-minimun {
-    color: #00a0b0;
+  color: #00a0b0;
 }
 
 .card-content__temperature-maximun {
-    color: #cf5c78;
+  color: #cf5c78;
 }
 
 .card-content__temperature-maximun::before,
 .card-content__temperature-minimun::before {
-    font-family: "weathericons";
-    margin-right: 0.3rem;
-    font-size: inherit;
+  font-family: "weathericons";
+  margin-right: 0.3rem;
+  font-size: inherit;
 }
 
 .card-content__temperature-minimun::before {
-    content: "\f044";
+  content: "\f044";
 }
 
 .card-content__temperature-maximun::before {
-    content: "\f058";
+  content: "\f058";
 }
 
 .card-content__temperature-maximun::after,
 .card-content__temperature-minimun::after,
 .card-content__temperature-current::after {
-    content: "ºC";
-    font-size: inherit;
+  content: "ºC";
+  font-size: inherit;
 }
 
 h3.card-content__current-date {
-    color: #69707d;
-    font-weight: 600;
-    margin: 0.1rem;
+  color: #69707d;
+  font-weight: 600;
+  margin: 0.1rem;
 }
 
 .card-content__forecast-info {
-    color: #69707d;
+  color: #69707d;
 }
 
 .card-content__state-sky {
-    color: #00589b;
-    font-weight: bold;
-    font-size: 3rem;
-    line-height: 1;
-    margin: 0;
-    display: inline-block;
+  color: #00589b;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0;
+  display: inline-block;
 }
 
 .card-content__state-sky:before,
 .card-content__state-sky:after {
-    position: relative;
-    font-family: "weathericons";
-    font-size: 3rem;
-    line-height: 0;
+  position: relative;
+  font-family: "weathericons";
+  font-size: 3rem;
+  line-height: 0;
 }
 
 .card-content__state-sky[data-id="01d"]:after {
-    content: "\f00d";
+  content: "\f00d";
 }
 
 .card-content__state-sky[data-id="01n"]:after {
-    content: "\f02e";
+  content: "\f02e";
 }
 
 .card-content__state-sky[data-id="02d"]:after,
 .card-content__state-sky[data-id="03d"]:after {
-    content: "\f002";
+  content: "\f002";
 }
 
 .card-content__state-sky[data-id="02n"]:after,
 .card-content__state-sky[data-id="03n"]:after {
-    content: "\f086";
+  content: "\f086";
 }
 
 .card-content__state-sky[data-id="11"]:after {
-    content: "\f00d";
+  content: "\f00d";
 }
 
 .card-content__state-sky[data-id="11n"]:after {
-    content: "\f02e";
+  content: "\f02e";
 }
 
 .card-content__state-sky[data-id="12"]:after,
 .card-content__state-sky[data-id="13"]:after {
-    content: "\f00c";
+  content: "\f00c";
 }
 
 .card-content__state-sky[data-id="12n"]:after,
 .card-content__state-sky[data-id="13n"]:after {
-    content: "\f083";
+  content: "\f083";
 }
 
 .card-content__state-sky[data-id*="14"]:after,
 .card-content__state-sky[data-id*="15"]:after,
 .card-content__state-sky[data-id*="16"]:after {
-    content: "\f013";
+  content: "\f013";
 }
 
 .card-content__state-sky[data-id="17"]:after {
-    content: "\f07d";
+  content: "\f07d";
 }
 
 .card-content__state-sky[data-id="17n"]:after {
-    content: "\f080";
+  content: "\f080";
 }
 
 .card-content__state-sky[data-id*="64"]:after,
@@ -175,7 +180,7 @@ h3.card-content__current-date {
 .card-content__state-sky[data-id*="53"]:after,
 .card-content__state-sky[data-id*="52"]:after,
 .card-content__state-sky[data-id*="51"]:after {
-    content: "\f01e";
+  content: "\f01e";
 }
 
 .card-content__state-sky[data-id*="46"]:after,
@@ -185,15 +190,15 @@ h3.card-content__current-date {
 .card-content__state-sky[data-id*="25"]:after,
 .card-content__state-sky[data-id*="24"]:after,
 .card-content__state-sky[data-id*="23"]:after {
-    content: "\f019";
+  content: "\f019";
 }
 
 .card-content__state-sky[data-id="43"]:after {
-    content: "\f008";
+  content: "\f008";
 }
 
 .card-content__state-sky[data-id="43n"]:after {
-    content: "\f036";
+  content: "\f036";
 }
 
 .card-content__state-sky[data-id*="74"]:after,
@@ -204,19 +209,19 @@ h3.card-content__current-date {
 .card-content__state-sky[data-id*="35"]:after,
 .card-content__state-sky[data-id*="34"]:after,
 .card-content__state-sky[data-id*="33"]:after {
-    content: "\f01b";
+  content: "\f01b";
 }
 
 .card-content__state-sky[data-id="81"]:after,
 .card-content__state-sky[data-id="82"]:after {
-    content: "\f003";
+  content: "\f003";
 }
 
 .card-content__state-sky[data-id="81n"]:after,
 .card-content__state-sky[data-id="82n"]:after {
-    content: "\f04a";
+  content: "\f04a";
 }
 
 .card-content__state-sky[data-id="wind"]:after {
-    content: "\f050";
+  content: "\f050";
 }

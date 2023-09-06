@@ -1,11 +1,11 @@
 .body__container {
-    border: 0px;
-    /* width: 100%; */
-    /* min-height: calc(100vh - 7rem); */
+  border: 0px;
+  /* width: 100%; */
+  /* min-height: calc(100vh - 7rem); */
 }
 
 .header {
-    position: sticky;
-    background-color: #f5df4d;
-    padding: 0 1rem;
+  position: sticky;
+  background-color: #f5df4d;
+  padding: 0 1rem;
 }

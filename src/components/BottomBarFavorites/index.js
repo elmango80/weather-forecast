@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   EuiBottomBar,
@@ -14,8 +14,8 @@ import {
 
 import CardFavorite from "components/CardFavorite";
 
-import "./styles.css";
 import { updatePosition } from "redux/actions/favorite";
+import "./styles.css";
 
 export default function BottomBarFavorites() {
   const dispatch = useDispatch();

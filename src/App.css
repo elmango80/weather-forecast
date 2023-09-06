@@ -1,16 +1,15 @@
 .form-auth {
-    min-width: 200px;
+  min-width: 200px;
 }
 
 .public-page {
-    min-height: 100vh;
+  min-height: 100vh;
 }
-
 
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 576px) {
-    .form-auth {
-        min-width: 400px;
-    }
+  .form-auth {
+    min-width: 400px;
+  }
 }

@@ -1,35 +1,38 @@
 :root {
-    --color-txt: #69707d;
-    --color-txt-light: #f0eee9;
-    --color-txt-dark: #00589b;
-    --color-txt-error: #fe4962;
-    --color-txt-link: #00a0b0;
-    --color-white: #fff;
-    --color-primary: #939597;
-    --color-primary-light: #939597;
-    --color-secondary: #f5df4d;
-    --color-tertiary: #00589b;
-    --color-bg: #939597;
-    --color-bg-light: #f0eee9;
-    --color-bg-medium: #f5df4d;
-    --color-bg-dark: #00589b;
-    --color-negative-light: #fe4962;
-    --color-negative-dark: #ab2143;
+  --color-txt: #69707d;
+  --color-txt-light: #f0eee9;
+  --color-txt-dark: #00589b;
+  --color-txt-error: #fe4962;
+  --color-txt-link: #00a0b0;
+  --color-white: #fff;
+  --color-primary: #939597;
+  --color-primary-light: #939597;
+  --color-secondary: #f5df4d;
+  --color-tertiary: #00589b;
+  --color-bg: #939597;
+  --color-bg-light: #f0eee9;
+  --color-bg-medium: #f5df4d;
+  --color-bg-dark: #00589b;
+  --color-negative-light: #fe4962;
+  --color-negative-dark: #ab2143;
 }
 
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 @media (min-width: 768px) {
-    .page--with-header {
-        margin-top: 2rem;
-    }
+  .page--with-header {
+    margin-top: 2rem;
+  }
 }
