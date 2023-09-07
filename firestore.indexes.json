@@ -1,30 +1,33 @@
 {
-    "indexes": [{
-            "collectionGroup": "favorites",
-            "queryScope": "COLLECTION",
-            "fields": [{
-                    "fieldPath": "uid",
-                    "order": "ASCENDING"
-                },
-                {
-                    "fieldPath": "position",
-                    "order": "DESCENDING"
-                }
-            ]
+  "indexes": [
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "uid",
+          "order": "ASCENDING"
         },
         {
-            "collectionGroup": "favorites",
-            "queryScope": "COLLECTION",
-            "fields": [{
-                    "fieldPath": "uid",
-                    "order": "ASCENDING"
-                },
-                {
-                    "fieldPath": "position",
-                    "order": "ASCENDING"
-                }
-            ]
+          "fieldPath": "position",
+          "order": "DESCENDING"
         }
-    ],
-    "fieldOverrides": []
+      ]
+    },
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "position",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
 }
