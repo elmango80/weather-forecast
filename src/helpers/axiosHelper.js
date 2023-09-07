@@ -8,4 +8,4 @@ const initialization = () => {
   axios.defaults.headers.post["Access-Control-Allow-Methods"] = "*";
 };
 
-export { initialization, axios };
+export { axios, initialization };
